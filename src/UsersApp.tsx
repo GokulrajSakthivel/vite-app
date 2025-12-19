@@ -28,7 +28,7 @@ export default function UsersApp() {
 
     const sub = DataStore.observe(Users).subscribe(() => fetchUsers());
     return () => {
-      // sub.unsubscribe();
+      sub.unsubscribe();
       cleanupDataStore();
       removeNetworkListener();
     };
