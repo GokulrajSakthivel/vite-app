@@ -1,13 +1,13 @@
 {
   "api": {
-    "viteprojectapi": {
+    "viteproject": {
       "dependsOn": [
         {
           "attributes": [
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "viteprojectfb4c8852"
+          "resourceName": "viteproject914a0665"
         }
       ],
       "output": {
@@ -16,7 +16,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authviteprojectfb4c8852"
+              "userPoolId": "authviteproject914a0665"
             }
           }
         }
@@ -26,7 +26,7 @@
     }
   },
   "auth": {
-    "viteprojectfb4c8852": {
+    "viteproject914a0665": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {

@@ -26,12 +26,12 @@ export default function UsersApp() {
     setupNetworkListener();
     // restartDataStoreAfterAuth();
 
-    // const sub = DataStore.observe(Users).subscribe(() => fetchUsers());
-    // return () => {
-    //   // sub.unsubscribe();
-    //   cleanupDataStore();
-    //   removeNetworkListener();
-    // };
+    const sub = DataStore.observe(Users).subscribe(() => fetchUsers());
+    return () => {
+      // sub.unsubscribe();
+      cleanupDataStore();
+      removeNetworkListener();
+    };
   }, []);
 
 //   async function restartDataStoreAfterAuth() {
@@ -332,15 +332,15 @@ export default function UsersApp() {
     }
   }
 
-  // async function clearLocalData() {
-  //   try {
-  //     await DataStore.clear();
-  //     console.log("🧹 DataStore cleared");
-  //     fetchUsers();
-  //   } catch (e) {
-  //     console.error("Error clearing DataStore", e);
-  //   }
-  // }
+  async function clearLocalData() {
+    try {
+      await DataStore.clear();
+      console.log("🧹 DataStore cleared");
+      fetchUsers();
+    } catch (e) {
+      console.error("Error clearing DataStore", e);
+    }
+  }
 
   function setupNetworkListener() {
     window.addEventListener("online", updateNetworkStatus);
@@ -479,7 +479,7 @@ export default function UsersApp() {
       </div>
 
       {/* Actions */}
-      {/* <button
+      {<button
         onClick={clearLocalData}
         style={{
           marginBottom: "10px",
@@ -492,7 +492,7 @@ export default function UsersApp() {
         }}
       >
         Clear Local Cache
-      </button> */}
+      </button> }
 
       <h3>User List</h3>
 
