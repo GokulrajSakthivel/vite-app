@@ -57,6 +57,7 @@ export default function UsersApp() {
   }
 
   function removeNetworkListener() {
+    console.log("removeNetworkListener calling");
     window.removeEventListener("online", updateNetworkStatus);
     window.removeEventListener("offline", updateNetworkStatus);
   }
