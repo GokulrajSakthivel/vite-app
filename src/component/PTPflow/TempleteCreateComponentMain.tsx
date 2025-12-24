@@ -27,7 +27,7 @@ const TempleteCreateComponentMain: React.FC = () => {
     console.log(tasks);
     return (<>
         <div>
-            <Container fluid className="pt-3 pb-5">
+      
                 <h5 className="fw-bold mb-3">Create Templete</h5>
                 <div className="step completed-step">
                     <Stepper
@@ -93,7 +93,6 @@ const TempleteCreateComponentMain: React.FC = () => {
                         Next →
                     </button>
                 </div>
-            </Container>
         </div>
     </>);
 }

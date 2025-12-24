@@ -7,8 +7,8 @@ overflow: hidden!important;
  }
 
  .main-container {
-     padding-top: 56px;
-     padding-bottom: 40px;
+     padding-top: 32px;
+     padding-bottom: 45px;
      height: 100%;
  }
 
@@ -139,7 +139,3 @@ overflow: hidden!important;
   color: #777;
 }
 
-/* Layout spacing fix */
-.main-container {
-  padding-top: 64px;
-}

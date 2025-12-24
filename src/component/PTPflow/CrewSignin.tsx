@@ -186,12 +186,9 @@ const CrewSignin: React.FC = () => {
                             </Card.Header>
                             <Card.Body>
                                 <Row>
-
-
                                     <Col md={7} className="border-end">
                                         <div className="signature-box">
                                             <span className="signature-placeholder">Sign here..</span>
-
                                             <SignatureCanvas
                                                 ref={sigRef}
                                                 penColor="#000"
@@ -231,6 +228,10 @@ const CrewSignin: React.FC = () => {
 
                             </Card.Body>
                         </Card>
+                        
+                    </div>
+                    <div className="justify-content-end d-flex mt-3">
+                        <Button variant="btn btn-success">Submit for Review</Button>
                     </div>
                 </Card.Body>
             </Card>
