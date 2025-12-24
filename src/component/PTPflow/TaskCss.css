@@ -1,0 +1,25 @@
+.task-card {
+  border-radius: 12px;
+  position: relative;
+}
+
+.task-left-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  background-color: #f05a28;
+  border-radius: 12px 0 0 12px;
+}
+
+.hazard-chip {
+  background: #eef2ff;
+  color: #3b5bdb;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

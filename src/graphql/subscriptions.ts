@@ -13,6 +13,11 @@ export const onCreateUsers = /* GraphQL */ `subscription OnCreateUsers($filter: 
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -30,6 +35,11 @@ export const onUpdateUsers = /* GraphQL */ `subscription OnUpdateUsers($filter: 
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -47,6 +57,11 @@ export const onDeleteUsers = /* GraphQL */ `subscription OnDeleteUsers($filter: 
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -58,4 +73,58 @@ export const onDeleteUsers = /* GraphQL */ `subscription OnDeleteUsers($filter: 
 ` as GeneratedSubscription<
   APITypes.OnDeleteUsersSubscriptionVariables,
   APITypes.OnDeleteUsersSubscription
+>;
+export const onCreateAddress = /* GraphQL */ `subscription OnCreateAddress($filter: ModelSubscriptionAddressFilterInput) {
+  onCreateAddress(filter: $filter) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateAddressSubscriptionVariables,
+  APITypes.OnCreateAddressSubscription
+>;
+export const onUpdateAddress = /* GraphQL */ `subscription OnUpdateAddress($filter: ModelSubscriptionAddressFilterInput) {
+  onUpdateAddress(filter: $filter) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateAddressSubscriptionVariables,
+  APITypes.OnUpdateAddressSubscription
+>;
+export const onDeleteAddress = /* GraphQL */ `subscription OnDeleteAddress($filter: ModelSubscriptionAddressFilterInput) {
+  onDeleteAddress(filter: $filter) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteAddressSubscriptionVariables,
+  APITypes.OnDeleteAddressSubscription
 >;

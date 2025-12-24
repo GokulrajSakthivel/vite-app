@@ -1,0 +1,224 @@
+:root {
+  --orange: #E35205;
+  --white:#FFFFFF;
+  --gray:#F8FBFD;
+  --textblack:#00263A;
+  --lighttextgray:#666666;
+  --bottoncolorblock:#00263A;
+  --checkboxcolorstroke:#3FC537;
+  --greencheckbox :#72CF6C;
+  --hearderbgcolor:#FFFFFF;
+  --tagBlue:#1EA0F7;
+   --tagBluelite:#d1ebfc;
+  --tagGreen:#3BC55EFA;
+    --tagGreenlite:#d9f4df;
+  --tagGray:#4F758B;
+  --TagGraylite:#edf1f4;
+  --headercolor:#00263A;
+  --badbaground:#A5BAC9;
+  --lightGreenColor:#c4fac091;
+  --blueGray:#A5BAC9;
+}
+
+
+.header-bg {
+    background-color: var(--hearderbgcolor) !important;
+    border-bottom: 3px solid var(--orange);
+    color: var(--textblack);
+}
+.litleCard {
+  border-radius: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+.headerText {
+  color: var(--textblack);
+  width: 149;
+  height: 24;
+  opacity: 1;
+  top: 10px;
+  left: 26px;
+}
+.headerText2 {
+  width: 189.80003356933594;
+  height: 0px;
+  opacity: 1;
+  top: 16px;
+  left: 21.99px;
+
+}
+.whiteBackground {
+  background-color: var(--gray) !important;
+}
+.input-group-text{
+  background-color: var(--white) !important;
+  border-right: 1px solid var(--lighttextgray) !important;
+}
+.submitTag{
+  background-color: var(--tagBluelite) !important;
+  color: var(--tagBlue) !important;
+}
+.inprograTag{
+   background-color: var(--TagGraylite) !important;
+  color: var(--tagGray) !important;
+}
+.reviewedTag{
+   background-color: var(--tagGreenlite) !important;
+  color: var(--tagGreen) !important;
+}
+.completedTag{
+   background-color: var(--tagGreenlite) !important;
+  color: var(--tagGreen) !important;
+}
+.greenlightbackground{
+  background-color: var(--lightGreenColor) !important;
+}
+.commonPopmodelHeader{
+  background-color: var(--headercolor) !important;
+  color: var(--white) !important;
+ 
+}
+.headerFontColor{
+  color: var(--white) !important;
+ 
+   font-size: 15px !important;
+}
+.commonPopmodelHeader .modal-header .btn-close {
+  color:var(--white) !important;
+  background: var(--white) !important;
+  border-radius: 16px;
+}
+.botton .btn-close .btn .btn-dark{
+  color:var(--white) !important;
+}
+
+/* Custom modal close button */
+.custom-modal .btn-close {
+  background-color: #fcfbfb;      /* button background */
+  opacity: 1;                       /* remove fade */
+  border-radius: 60%;
+  width: 5px;
+  height: 5px;
+}
+
+/* Change icon color */
+.custom-modal .btn-close::before {
+  filter: invert(1);   
+  height: 10px;
+  width: 10px;
+  /* makes icon white */
+}
+
+/* Hover effect */
+.custom-modal .btn-close:hover {
+  background-color: #fcfbfb;
+  /* red */
+}
+
+.titleCardText {
+  opacity: 0.7;
+  top: 65.6px;
+  left: 14.66px;
+
+}
+
+.titleCardTextBold {
+  width: 125;
+  height: 18;
+  opacity: 1;
+  color: var(--textblack);
+  
+
+}
+
+.form-check-input:checked {
+    background-color: var(--checkboxcolorstroke);
+    border-color: var(--checkboxcolorstroke);
+}
+.card{
+  border-radius: 10px;
+  border: 0.5px solid #EDEBEB;
+  box-shadow: 0 4px 6px rgba(237, 235, 235, 0.1);
+}
+
+
+.icon-img{
+width: 20px;
+height: 22px;
+opacity: 1;
+border-radius: 4px;
+
+}
+.outline-lightcolorplue{
+  color:var(--headercolor)
+}
+hr {
+  margin: 0.5rem 0;
+}
+.modal-header .btn-close {
+  width: 0.50rem;
+  height: 0.50rem;
+  padding: 0.25rem;
+  background-size: 0.59rem;
+}
+.buttonColorSuccess{
+  background-color: var(--checkboxcolorstroke) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--checkboxcolorstroke);
+    border-color: var(--checkboxcolorstroke);
+}
+
+.signCss {
+  color: var(--checkboxcolorstroke);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+
+}
+.active-page {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  text-align: center;
+}
+
+.pagination-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.pagination-btn.active-page {
+  background-color: var(--blueGray); /* Bootstrap primary */
+  color: white;
+  border: none;
+}
+
+.pagination-btn:not(.active-page) {
+  background-color: white;
+  color:var(--blueGray);
+  border: 1px solid var(--blueGray);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color:var(--blueGray);
+  color: white;
+}
+
+.headerCard{
+      background:var(--TagGraylite) !important;
+}
+
+.small-checkbox input[type="checkbox"] {
+ width: 18px;
+ height: 19px;
+}

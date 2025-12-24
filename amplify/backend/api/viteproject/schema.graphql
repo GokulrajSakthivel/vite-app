@@ -9,4 +9,14 @@ type Users @model @auth(rules: [
   id: ID!
   email:String!
   name: String
+  addresses: [Address] @hasMany(indexName: "byUser", fields: ["id"])
+}
+
+type Address
+  @model
+  @auth(rules: [{ allow: private, provider: userPools }]) {
+  id: ID!
+  userID: ID! @index(name: "byUser")
+  country: String!
+  phone: String!
 }

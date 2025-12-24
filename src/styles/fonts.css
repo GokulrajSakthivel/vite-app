@@ -1,0 +1,58 @@
+/* Factoria */
+@font-face {
+  font-family: "Factoria";
+  src: url("../assets/fonts/Factoria-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Factoria";
+  src: url("../assets/fonts/Factoria-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Industry */
+@font-face {
+  font-family: "Industry";
+  src: url("../assets/fonts/Industry-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Industry";
+  src: url("../assets/fonts/Industry-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* URW DIN */
+@font-face {
+  font-family: "URWDIN";
+  src: url("../assets/fonts/urwdin-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "URWDIN";
+  src: url("../assets/fonts/urwdin-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "URWDIN";
+  src: url("../assets/fonts/urwdin-italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "URWDIN";
+  src: url("../assets/fonts/urwdin-bolditalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}

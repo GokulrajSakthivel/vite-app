@@ -16,6 +16,11 @@ export const createUsers = /* GraphQL */ `mutation CreateUsers(
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -36,6 +41,11 @@ export const updateUsers = /* GraphQL */ `mutation UpdateUsers(
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -56,6 +66,11 @@ export const deleteUsers = /* GraphQL */ `mutation DeleteUsers(
     id
     email
     name
+    addresses {
+      nextToken
+      startedAt
+      __typename
+    }
     createdAt
     updatedAt
     _version
@@ -67,4 +82,67 @@ export const deleteUsers = /* GraphQL */ `mutation DeleteUsers(
 ` as GeneratedMutation<
   APITypes.DeleteUsersMutationVariables,
   APITypes.DeleteUsersMutation
+>;
+export const createAddress = /* GraphQL */ `mutation CreateAddress(
+  $input: CreateAddressInput!
+  $condition: ModelAddressConditionInput
+) {
+  createAddress(input: $input, condition: $condition) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateAddressMutationVariables,
+  APITypes.CreateAddressMutation
+>;
+export const updateAddress = /* GraphQL */ `mutation UpdateAddress(
+  $input: UpdateAddressInput!
+  $condition: ModelAddressConditionInput
+) {
+  updateAddress(input: $input, condition: $condition) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateAddressMutationVariables,
+  APITypes.UpdateAddressMutation
+>;
+export const deleteAddress = /* GraphQL */ `mutation DeleteAddress(
+  $input: DeleteAddressInput!
+  $condition: ModelAddressConditionInput
+) {
+  deleteAddress(input: $input, condition: $condition) {
+    id
+    userID
+    country
+    phone
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteAddressMutationVariables,
+  APITypes.DeleteAddressMutation
 >;
