@@ -2,6 +2,7 @@ import { useState } from "react";
 import HarzardCreation from "./HarzardCreation";
 import RequirementCreation from "./RequirementCreation";
 import { Container } from "react-bootstrap";
+import TemplateLibrary from "./TemplateLibrary";
 
 export default function TempleteCreation() {
     const [stage, setStage] = useState<number>(1);
@@ -16,6 +17,8 @@ export default function TempleteCreation() {
                     Create Trade Specific Custom Template
                 </h6>
             </div>
+            {/* <TemplateLibrary /> */}
+            {stage === 0 && <TemplateLibrary />}
             {stage === 1 && <HarzardCreation />}
             {stage === 2 && <RequirementCreation />}
 
