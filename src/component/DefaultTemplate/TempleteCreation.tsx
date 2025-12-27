@@ -1,22 +1,29 @@
 import { useState } from "react";
 import HarzardCreation from "./HarzardCreation";
 import RequirementCreation from "./RequirementCreation";
+import { Container } from "react-bootstrap";
+import TemplateLibrary from "./TemplateLibrary";
 
 export default function TempleteCreation() {
     const [stage, setStage] = useState<number>(1);
 
     return (
-        <div style={{ padding:0}}>
+        <div >
+            
+
+            
             <div>
                 <h6>
                     Create Trade Specific Custom Template
                 </h6>
             </div>
+            {/* <TemplateLibrary /> */}
+            {stage === 0 && <TemplateLibrary />}
             {stage === 1 && <HarzardCreation />}
             {stage === 2 && <RequirementCreation />}
 
             <div
-                className="d-flex justify-content-between align-items-center mt-4 pt-3"
+                className="d-flex justify-content-between align-items-center pt-3"
                 style={{ borderTop: "1px solid #e6ebf5" }}
             >
                 <button
@@ -44,6 +51,7 @@ export default function TempleteCreation() {
                     {stage === 2 ? "Submit →" : "Next →"}
                 </button>
             </div>
+            
         </div>
     );
 }

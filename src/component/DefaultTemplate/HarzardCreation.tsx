@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import edit from "../../assets/icon/edit.png";
 import CommonModal from "../../assets/utilits/CommonModal";
-
 interface Control {
   label: string;
   isPresent?: boolean;
@@ -15,66 +14,8 @@ interface Hazard {
   controls: Control[];
 }
 
-const initialHazards: Hazard[] = [
-  {
-    id: 1,
-    title: "Overhead Utilities",
-    hasClearance: true,
-    controls: [
-      { label: "Power De-energization Required", isPresent: true },
-      { label: "Insulation Blankets Required", isPresent: true },
-      { label: "Fire Watcher Required", isPresent: true },
-      { label: "Safe Work Zone Marked", isPresent: true }
-    ]
-  },
-  {
-    id: 2,
-    title: "Crane or Other Lifting Equip.",
-    controls: [
-      { label: "Signalman Assigned", isPresent: true },
-      { label: "Worker Protected / Overhead Load", isPresent: true },
-      { label: "Lifting Equip. Inspected", isPresent: true },
-      { label: "Area Around Crane Barricaded", isPresent: true },
-      { label: "Tag Line in Use", isPresent: true }
-    ]
-  },
-  {
-    id: 3,
-    title: "Excavations",
-    controls: [
-      { label: "Proper Sloping / Shoring", isPresent: true },
-      { label: "Access / Ingress Provided", isPresent: true },
-      { label: "Protected from water", isPresent: true },
-      { label: "Inspected Prior to Entering", isPresent: true },
-      { label: "Barricades Provided", isPresent: true }
-    ]
-  },
-  {
-    id: 4,
-    title: "Electrical",
-    controls: [
-      { label: "Lock Out / Tag Out / Try Out", isPresent: true },
-      { label: "Reviewed Elect. Safety Procedures", isPresent: true },
-      { label: "Confirm Equip. De-Energized", isPresent: true },
-      { label: "Existing Cords protected", isPresent: true }
-    ]
-  },
-  {
-    id: 5,
-    title: "Underground Utilities [CAP]",
-    hasClearance: true,
-    controls: [
-      { label: "Safe Work Zone Marked", isPresent: true },
-      { label: "Received Ground Disturbance Permit", isPresent: true },
-      { label: "Subsurface Survey", isPresent: true },
-      { label: "Reviewed As-Built", isPresent: true },
-      { label: "Owner Utilities Marked", isPresent: true }
-    ]
-  }
-];
-
 const HarzardCreation: React.FC = () => {
-  const [hazards, setHazards] = useState<Hazard[]>(initialHazards);
+  const [hazards, setHazards] = useState<Hazard[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [editedHazard, setEditedHazard] = useState<Hazard | null>(null);
   const isAllSelected = editedHazard?.controls.every(
@@ -83,7 +24,7 @@ const HarzardCreation: React.FC = () => {
 
   // open modal
   const openEditModal = (hazard: Hazard) => {
-    setEditedHazard(JSON.parse(JSON.stringify(hazard))); // clone
+    setEditedHazard(JSON.parse(JSON.stringify(hazard))); 
     setShowModal(true);
   };
 
@@ -120,10 +61,42 @@ const HarzardCreation: React.FC = () => {
         h.id === editedHazard.id ? editedHazard : h
       )
     );
-
     setShowModal(false);
   };
 
+  useEffect(() => {
+    // Fetch and transform data from JSON file
+    fetch("/src/component/DefaultTemplate/RetriveMasterData.Json")
+      .then(res => res.json())
+      .then(data => {
+        // Filter hazards control measures from master data
+        const hazardItems = data.data.listMasters.items.filter(
+          (item: any) => item.categoryName === "HAZARDS-CONTROL-MEASURE" && item.isActive
+        );
+
+        // Sort by displayOrder
+        hazardItems.sort((a: any, b: any) => a.displayOrder - b.displayOrder);
+
+        // Transform the data to match our Hazard interface
+        const transformedHazards: Hazard[] = hazardItems.map((item: any, index: number) => ({
+          id: index + 1,
+          title: item.MasterDescription,
+          hasClearance: item.MasterDescription.toLowerCase().includes('utilities'),
+          // controls: item.items.items
+          //   .filter((control: any) => control.isActive)
+          //   .map((control: any) => ({
+          //     label: control.itemName,
+          //     isPresent: true
+          //   }))
+        }));
+
+        setHazards(transformedHazards);
+        console.log('Loaded hazards from JSON:', transformedHazards);
+      })
+      .catch(error => {
+        console.error('Error loading hazards:', error);
+      });
+  }, []);
   return (
     <>
       <Card className="shadow-sm bg-light">
@@ -160,9 +133,9 @@ const HarzardCreation: React.FC = () => {
                     </Col>
                   )}
                 </Row>
-
+{/* {hazard?.controls.length > 0 && (
                 <Row className="mt-2">
-                  {hazard.controls
+                  {hazard?.controls
                     .filter(c => c.isPresent === true)
                     .map((control, idx) => (
                       <Col md={3} key={idx}>
@@ -173,7 +146,7 @@ const HarzardCreation: React.FC = () => {
                         />
                       </Col>
                     ))}
-                </Row>
+                </Row>)} */}
 <br/>
                 <div className="hazard-actions mt-4 pt-3">
                   <img
