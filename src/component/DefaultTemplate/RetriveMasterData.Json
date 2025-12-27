@@ -1,0 +1,2216 @@
+{
+  "data": {
+    "listMasters": {
+      "items": [
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:28.014Z",
+          "displayOrder": 14,
+          "id": "0e4a9b71-2f83-4d65-9c10-b7a5e6d12893",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0e4a9b71-2f83-4d65-9c10-b7a5e6d12893",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:28.222Z",
+                "id": "33da2c85-d0cf-485f-9e21-2e4d71b91e5b",
+                "itemName": "Working Near Operating Equip.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0e4a9b71-2f83-4d65-9c10-b7a5e6d12893",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:28.424Z",
+                "id": "49eedcec-136a-4401-9a7c-b2f29909ac92",
+                "itemName": "Hand/Body Positioning – Manual Material Handling",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-PP",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:28.014Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:53.342Z",
+          "displayOrder": 0,
+          "id": "04d6f2a1-9e45-43bc-8a71-5c9b1f0d4e04",
+          "isActive": true,
+          "items": {
+            "items": []
+          },
+          "masterDescription": null,
+          "masterName": "PPE",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:31:53.342Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:18.215Z",
+          "displayOrder": 9,
+          "id": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:20.076Z",
+                "id": "002e5e43-8f72-481d-9f29-587ab6b3941d",
+                "itemName": "Guarding OK",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:19.882Z",
+                "id": "3d4f6854-3c8a-4564-a233-579fa33b97f7",
+                "itemName": "Reviewed Owner Manual Safety Req.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:18.575Z",
+                "id": "405ed152-4de8-4313-a29b-38838793d948",
+                "itemName": "GFCI Used",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:18.392Z",
+                "id": "b33816fb-29ee-4fe2-b2cd-db6d106fefa1",
+                "itemName": "Inspect General Condition",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:18.731Z",
+                "id": "dac3897a-7101-4ff4-b6fd-da08f0da84a7",
+                "itemName": "Identified PPE",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-HPT",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:18.215Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:36.198Z",
+          "displayOrder": 21,
+          "id": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:36.618Z",
+                "id": "3f5f785c-160c-4744-af0e-25fd160bc3b6",
+                "itemName": "Secured Covers over Opening",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:36.404Z",
+                "id": "407caf78-f277-4386-99dd-2d5918c31fba",
+                "itemName": "Danger Barricade Tape Req. with Signage",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:36.936Z",
+                "id": "7c07d729-1bc6-4270-8023-bcfc2733d7df",
+                "itemName": "Caution Barricade Tape Req.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:37.758Z",
+                "id": "a5133a57-e434-46fe-b401-6831839c949b",
+                "itemName": "Warning Signs Req.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:37.061Z",
+                "id": "bf3b7d54-0752-4031-95ab-b19576ad0193",
+                "itemName": "Rigid Railing Req.",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-BC",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:36.198Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:16.645Z",
+          "displayOrder": 8,
+          "id": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:17.467Z",
+                "id": "06362748-ba97-433a-bbb9-81b9b081be84",
+                "itemName": "Hearing Protection Required",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:18.046Z",
+                "id": "d00a7a5f-9538-4f7c-bbf2-841ad19c2a31",
+                "itemName": "Both Ear Plugs & Ear Muffs",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:17.866Z",
+                "id": "ebb46f86-edac-4eda-bcd0-7b57672789e9",
+                "itemName": "Ear Muffs",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:17.676Z",
+                "id": "fee7540a-6ae9-4014-a53c-ea6605408d95",
+                "itemName": "Ear Plugs",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-N85",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:16.645Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:55.606Z",
+          "displayOrder": 3,
+          "id": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:56.266Z",
+                "id": "1da146d8-6c34-4ce2-8f47-d7c96b045aab",
+                "itemName": "Rubber Boots",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:55.999Z",
+                "id": "9312e958-553d-4c1d-b102-e0ef1e96de76",
+                "itemName": "Safety Toe Boot",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:55.775Z",
+                "id": "a356944b-582f-47e4-8d9a-97f6b62bec47",
+                "itemName": "Sturdy Work Boots",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:56.507Z",
+                "id": "f5829fe2-208b-49d4-b53d-bd77054ba43d",
+                "itemName": "Dielectric Footwear",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-FP",
+          "masterTitle": "FOOT PROTECTION",
+          "updatedAt": "2025-12-27T10:31:55.606Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:20.303Z",
+          "displayOrder": 10,
+          "id": "d9a6b8e4-1f50-4d63-8a7c-2e5c037b1929",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "d9a6b8e4-1f50-4d63-8a7c-2e5c037b1929",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:21.256Z",
+                "id": "2ab7605c-486c-40c0-8906-c383375db5ba",
+                "itemName": "Protected Sharp Edges",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "d9a6b8e4-1f50-4d63-8a7c-2e5c037b1929",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:32:20.445Z",
+                "id": "f817ca8c-f729-443a-ab20-89beab065fa4",
+                "itemName": "PPE – Proper Gloves, etc.",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-HH",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:20.303Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:34.990Z",
+          "displayOrder": 20,
+          "id": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:35.688Z",
+                "id": "4ac4e51d-fe9c-48ff-ba11-b5ff19763f73",
+                "itemName": "Others above/below",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:36.027Z",
+                "id": "689a8ba2-d10b-474b-8459-2fdc2f0c02e2",
+                "itemName": "Need Barriers Between",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:35.906Z",
+                "id": "82669561-0538-4354-934c-968dd63520c1",
+                "itemName": "Coordinated with Adjacent Employers",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:35.206Z",
+                "id": "c8d30689-644d-4227-ac21-691e5ba63462",
+                "itemName": "Notified Them of our Presence",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-AWP",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:34.990Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:08.450Z",
+          "displayOrder": 1,
+          "id": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:09.201Z",
+                "id": "2eb54b9b-855d-4640-9de8-9151b2a20d36",
+                "itemName": "Safe Work Zone Marked",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:08.676Z",
+                "id": "686a115c-53f9-4fd6-84da-c0e080e85bf4",
+                "itemName": "Power De-energization Required",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:08.839Z",
+                "id": "867d49ff-e595-431c-a843-b6212d0a25a9",
+                "itemName": "Fire Watcher Required",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:08.988Z",
+                "id": "d8d2dca7-25b9-4bed-8e0a-85733710f5f1",
+                "itemName": "Insulation Blankets Required",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-OU",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:08.450Z"
+        },
+        {
+          "categoryName": "REQUIRED-PERMITS",
+          "createdAt": "2025-12-27T10:31:49.008Z",
+          "displayOrder": 0,
+          "id": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:31:50.067Z",
+                "id": "2d98d1b3-93ee-4648-a014-21cee133c179",
+                "itemName": "Traffic",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:49.653Z",
+                "id": "402f80d6-492a-4c8a-afa0-5d6d1c4faa95",
+                "itemName": "Ground Disturbance (over 12”)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 7,
+                "createdAt": "2025-12-27T10:31:50.653Z",
+                "id": "503f7681-fe80-4f3c-9f9d-80d204109d12",
+                "itemName": "Excavation",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:49.872Z",
+                "id": "972ca297-37c5-4835-be31-43719fcdee1f",
+                "itemName": "Pressure Testing",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:49.489Z",
+                "id": "ada44743-5752-4f13-927d-9cd3f0c1c34e",
+                "itemName": "Hot Work",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:31:50.329Z",
+                "id": "c78c2402-4794-47c7-8d2c-d0ee60e733a8",
+                "itemName": "Guard Rail Removal",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 9,
+                "createdAt": "2025-12-27T10:31:51.192Z",
+                "id": "e85c0a3e-6b23-456c-8991-588fcd26ac05",
+                "itemName": "ICRA",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 8,
+                "createdAt": "2025-12-27T10:31:50.912Z",
+                "id": "ee56446c-01cf-465a-8543-688d2408e5bf",
+                "itemName": "Energy Isolation/LOTO",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:49.217Z",
+                "id": "f1846c4c-35d7-4ffd-b2d1-6fa6a2f31eb1",
+                "itemName": "Confined Space",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PERMITS",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:31:49.008Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:32.800Z",
+          "displayOrder": 18,
+          "id": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:33.413Z",
+                "id": "0cea108b-f459-47c2-ab10-0df25fb7a42b",
+                "itemName": "Pollution Prevention",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:32:34.738Z",
+                "id": "54fe4df5-7a74-4059-9d93-bdb59cd31b73",
+                "itemName": "Other:",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:34.464Z",
+                "id": "5c435306-d449-417f-bf32-31078cac81d6",
+                "itemName": "Waste Minimization",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:33.227Z",
+                "id": "c8b1d5f5-304c-4b72-aca9-734445a5f0dd",
+                "itemName": "Water Discharge",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:34.301Z",
+                "id": "db5e8109-c0db-4a02-8f35-541b84974052",
+                "itemName": "Hazardous Waste",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:33.006Z",
+                "id": "ffc7beed-ca7b-4a28-9fd6-c2ef420526bb",
+                "itemName": "Air Emissions",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-En",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:32.800Z"
+        },
+        {
+          "categoryName": "USER-ROLE",
+          "createdAt": "2025-12-27T10:31:48.352Z",
+          "displayOrder": 0,
+          "id": "14f3d7b9-2e8a-4c61-9a05-c1b6e0d41420",
+          "isActive": true,
+          "items": {
+            "items": []
+          },
+          "masterDescription": null,
+          "masterName": "Group",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:31:48.352Z"
+        },
+        {
+          "categoryName": "REQUIRED-CHECKLIST",
+          "createdAt": "2025-12-27T10:31:51.356Z",
+          "displayOrder": 0,
+          "id": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:51.909Z",
+                "id": "08356b9f-62cc-41f1-938a-bfa502796a3f",
+                "itemName": "Exploratory Zone Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:31:52.386Z",
+                "id": "3b3f2bef-4f0a-49ad-bb11-5a4dd21d6950",
+                "itemName": "Utility Installation Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:51.692Z",
+                "id": "5400bfc9-bad8-4ebf-8481-ba6e26b6edf0",
+                "itemName": "Demo Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:31:52.655Z",
+                "id": "7628a0f9-3817-4748-ae95-e9d5ea67b565",
+                "itemName": "Excavation Zone Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:51.540Z",
+                "id": "a59f18bc-9f13-4c66-8cd8-c11f8dda4dbd",
+                "itemName": "Backfill Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 8,
+                "createdAt": "2025-12-27T10:31:53.129Z",
+                "id": "c089876f-2a93-4538-b16a-46ed624afdab",
+                "itemName": "Pressure Testing Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:52.168Z",
+                "id": "db2776d3-2b60-44d5-a63e-23279a42d5ab",
+                "itemName": "Cranes Checklist",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03",
+                "mastercode": "",
+                "displayOrder": 7,
+                "createdAt": "2025-12-27T10:31:52.897Z",
+                "id": "f9dcfd2f-4d95-44b0-a09e-27195f525e18",
+                "itemName": "Hydro Checklist",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "CHECKLIST",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:31:51.356Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:53.546Z",
+          "displayOrder": 2,
+          "id": "09c19e8b-7e1f-4F83-8f59-6a4d2b9e1c15",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "09c19e8b-7e1f-4F83-8f59-6a4d2b9e1c15",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:53.772Z",
+                "id": "086b4f84-96aa-4278-8342-c7564cb147b9",
+                "itemName": "Hard Hat",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09c19e8b-7e1f-4F83-8f59-6a4d2b9e1c15",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:53.935Z",
+                "id": "30308eb9-aa3e-4508-8be2-7421eeef38ce",
+                "itemName": "Ear Plugs / Muffs",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-HP",
+          "masterTitle": "HEAD PROTECTION",
+          "updatedAt": "2025-12-27T10:31:53.546Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:25.017Z",
+          "displayOrder": 13,
+          "id": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:32:27.298Z",
+                "id": "46e96dba-7a92-4c8d-8240-5ecaec22656d",
+                "itemName": "Extension Cords Properly Stored",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:25.956Z",
+                "id": "70dcf727-c372-4718-982e-ef2783041c9c",
+                "itemName": "Work Zone Debris Free",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:27.103Z",
+                "id": "81498176-d20c-48de-a565-da211fc0eb88",
+                "itemName": "Hazards Marked",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:26.161Z",
+                "id": "948587a8-89a6-4bb2-b521-6361943daebb",
+                "itemName": "Tools & Material Properly Stored",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:26.343Z",
+                "id": "97da78f4-fd89-4599-8f74-76782a164fe4",
+                "itemName": "Hazards Marked",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:25.744Z",
+                "id": "a1b6bf8a-d63c-4e31-9b6c-256cf0595c88",
+                "itemName": "Inspect for Trip Hazards",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52",
+                "mastercode": "",
+                "displayOrder": 7,
+                "createdAt": "2025-12-27T10:32:27.490Z",
+                "id": "fd51867a-77b4-41eb-8e05-fdc55161de4a",
+                "itemName": "Clear Paths of Egress",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-STF",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:25.017Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:11.651Z",
+          "displayOrder": 3,
+          "id": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:12.171Z",
+                "id": "33ec2f0c-42c5-4cd6-a827-0865421325c0",
+                "itemName": "Inspected Prior to Entering",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:12.001Z",
+                "id": "58f5d901-7297-46a9-8a16-cf5dfad0aed2",
+                "itemName": "Access/Ingress Provided",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:12.350Z",
+                "id": "ddfe01b7-32cf-412f-8b09-23fd3d0dd5d6",
+                "itemName": "Barricades Provided",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:11.803Z",
+                "id": "f06163b8-f821-46f4-bc08-d6aee5c450ac",
+                "itemName": "Proper Sloping/Shoring",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-El",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:11.651Z"
+        },
+        {
+          "categoryName": "HAZARD",
+          "createdAt": "2025-12-27T10:32:03.522Z",
+          "displayOrder": 0,
+          "id": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-Ex",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:04.254Z",
+                "id": "0e606cbf-d19e-4dc9-b67d-a97882e7f04c",
+                "itemName": "Underground Utilities  (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-HH",
+                "displayOrder": 10,
+                "createdAt": "2025-12-27T10:32:05.745Z",
+                "id": "1153b484-82d9-4429-9ff2-3212bf9372a9",
+                "itemName": "Hand Hazards",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-El",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:04.478Z",
+                "id": "1590437a-f086-4df9-9b09-116e13aaea5f",
+                "itemName": "Electrical  (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-FH",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:32:05.034Z",
+                "id": "19753772-97fe-440e-97a4-6d3dd51a6277",
+                "itemName": "Fire Hazard (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:03.993Z",
+                "id": "3f1f76aa-9be1-4704-80d1-2efdae5a450e",
+                "itemName": "Crane or Other Lifting Equip. (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-La",
+                "displayOrder": 12,
+                "createdAt": "2025-12-27T10:32:06.107Z",
+                "id": "69dc5b97-a87d-41a8-a119-41e90aa1186c",
+                "itemName": "Ladders",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-N85",
+                "displayOrder": 8,
+                "createdAt": "2025-12-27T10:32:05.380Z",
+                "id": "6a371042-48f9-4dc1-8c57-7429de9064f7",
+                "itemName": "Noise > 85db",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-UU",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:04.758Z",
+                "id": "6d15fcd7-e445-4280-b66c-15f764e9d641",
+                "itemName": "Excavations",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-BC",
+                "displayOrder": 21,
+                "createdAt": "2025-12-27T10:32:08.065Z",
+                "id": "6fc04841-7a80-4db0-a48a-1af9fb9e36a4",
+                "itemName": "Barricades/Covers",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-HPT",
+                "displayOrder": 9,
+                "createdAt": "2025-12-27T10:32:05.550Z",
+                "id": "711d8d55-54ce-4f41-a9dd-96e3773463cf",
+                "itemName": "Hand & Power Tools",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-En",
+                "displayOrder": 18,
+                "createdAt": "2025-12-27T10:32:07.394Z",
+                "id": "71e29ab3-c545-4829-b7ce-86af3db6e2a4",
+                "itemName": "Environmental",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-HSP",
+                "displayOrder": 17,
+                "createdAt": "2025-12-27T10:32:07.182Z",
+                "id": "78328133-b5ef-4e05-9b69-2a9161974b77",
+                "itemName": "Heat Stress Potential",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-ML",
+                "displayOrder": 11,
+                "createdAt": "2025-12-27T10:32:05.905Z",
+                "id": "7b50dd48-5251-496b-9adc-50eb66cc1333",
+                "itemName": "Manual Lifting",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-VTHE",
+                "displayOrder": 7,
+                "createdAt": "2025-12-27T10:32:05.196Z",
+                "id": "7b8cf843-35af-45c3-b8ec-66ca07804317",
+                "itemName": "Vehicular Traffic Deliveries (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-HK",
+                "displayOrder": 22,
+                "createdAt": "2025-12-27T10:32:08.236Z",
+                "id": "81e77a1c-5d7d-46da-97f0-621fd0dc743b",
+                "itemName": "Housekeeping",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-BC",
+                "displayOrder": 20,
+                "createdAt": "2025-12-27T10:32:07.851Z",
+                "id": "93b7de65-4b12-4036-8d9c-63c63252452a",
+                "itemName": "Adjacent Work Processes",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-OU",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:03.826Z",
+                "id": "96244751-4022-405c-8846-8c769ee94a7f",
+                "itemName": "Overhead Utilities",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-WC",
+                "displayOrder": 15,
+                "createdAt": "2025-12-27T10:32:06.655Z",
+                "id": "9b63e0d2-bb85-4fd1-b6b7-546fb43560fb",
+                "itemName": "Working with Chemicals",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-PP",
+                "displayOrder": 14,
+                "createdAt": "2025-12-27T10:32:06.509Z",
+                "id": "b1baae65-5353-4dbf-a632-ee2196802047",
+                "itemName": "Pinch Points",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-NSH",
+                "displayOrder": 19,
+                "createdAt": "2025-12-27T10:32:07.676Z",
+                "id": "b2215754-fd89-4e5e-8f45-f5d1b675ddd9",
+                "itemName": "Natural or Site Hazards",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-ALPP",
+                "displayOrder": 16,
+                "createdAt": "2025-12-27T10:32:06.984Z",
+                "id": "b3e119b9-97a6-44a3-a571-70996f4d9146",
+                "itemName": "Asbestos or Lead Paint Potential (CAP)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12",
+                "mastercode": "HCM-STF",
+                "displayOrder": 13,
+                "createdAt": "2025-12-27T10:32:06.374Z",
+                "id": "b9e6c627-7f4f-4593-a405-149d3ac3b404",
+                "itemName": "Slips, Trips, & Falls",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HAZARD",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:03.522Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:56.913Z",
+          "displayOrder": 4,
+          "id": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:57.552Z",
+                "id": "4c816e05-03be-4bfd-b886-c906b5dd1c6f",
+                "itemName": "Air Purifying Resp.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:57.357Z",
+                "id": "54c09115-ed10-4e2e-8c0d-a923c2a73488",
+                "itemName": "Supplied Air Resp.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:31:57.055Z",
+                "id": "af34dbbd-af83-4acf-8e97-f7a80a00f1dd",
+                "itemName": "Emerg. Escape",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:57.770Z",
+                "id": "da1287d3-0463-44f8-b51c-d3372efbf317",
+                "itemName": "Dust Mask",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:57.221Z",
+                "id": "e7e7a77c-9197-4484-af7f-2b2fe2caa50a",
+                "itemName": "SCBA",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-RP",
+          "masterTitle": "RESPIRATORY PROTECTION",
+          "updatedAt": "2025-12-27T10:31:56.913Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:10.361Z",
+          "displayOrder": 5,
+          "id": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:10.626Z",
+                "id": "0b768ba5-2d1d-478d-a467-b9153f14285d",
+                "itemName": "Subsurface survey",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:11.193Z",
+                "id": "49aa3e3a-bf94-40de-b9dd-d210165ac118",
+                "itemName": "Reviewed As-Built",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:11.029Z",
+                "id": "77fa79e2-4f17-4960-abbf-301900927d03",
+                "itemName": "Received Ground Disturbance Permit",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:11.484Z",
+                "id": "ce3312d8-ef4f-4692-9ac0-85cae0619689",
+                "itemName": "Owner Utilities Marked",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:10.491Z",
+                "id": "ed80a65c-dd80-4e75-b574-c00fa933b683",
+                "itemName": "Safe Work Zone Marked",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-UU",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:10.361Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:29.848Z",
+          "displayOrder": 16,
+          "id": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:30.486Z",
+                "id": "0da63f9f-3f1c-49f9-a5e1-4131bffcd1e6",
+                "itemName": "Asbestos Controls in Place",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:30.364Z",
+                "id": "76b6693a-c804-46df-8b20-d85a53ba5749",
+                "itemName": "Area Contains Asbestos or Lead",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:30.832Z",
+                "id": "8dc3055e-a4b5-4a8c-9da5-81e86dc3eaab",
+                "itemName": "Exposure Monitoring Req.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:30.683Z",
+                "id": "b75906d6-ab39-4dd1-a562-0871e2f878b1",
+                "itemName": "Lead Paint Controls in Place",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-ALPP",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:29.848Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:09.371Z",
+          "displayOrder": 2,
+          "id": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:09.965Z",
+                "id": "17c2da4f-18f3-465e-ae20-d3bbc9071c13",
+                "itemName": "Worker Protected/Overhead Load",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:09.533Z",
+                "id": "35d52e99-ff99-4666-95fe-fb7043dc6518",
+                "itemName": "Signalman Assigned",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:09.673Z",
+                "id": "3b10c01d-5e2d-49a6-a35d-eab5e81f1a66",
+                "itemName": "Area Around Crane Barricaded",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:09.802Z",
+                "id": "b4138321-7275-4c83-a6c7-dc2019e634da",
+                "itemName": "Lifting Equip. Inspected",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:10.227Z",
+                "id": "b8e229a7-9c5e-4a00-b53e-d459f61d35b3",
+                "itemName": "Tag Line in Use",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-COLE",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:09.371Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:58.127Z",
+          "displayOrder": 5,
+          "id": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 7,
+                "createdAt": "2025-12-27T10:31:59.726Z",
+                "id": "1449131b-2aca-4f37-bd49-ada3d63caec5",
+                "itemName": "Fall Clearance Distance Adequate",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:59.141Z",
+                "id": "17d3ffeb-1192-4f57-95da-1c6be6a4b43c",
+                "itemName": "Additional Anchorage Connection",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:31:59.566Z",
+                "id": "222eec07-a7e2-44b3-8a44-37cb679b8e22",
+                "itemName": "Fall Clearance Distance Adequate",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:58.719Z",
+                "id": "6fef334e-827f-4d49-9212-869ec326370e",
+                "itemName": "Anchorage Point Avail.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:31:59.367Z",
+                "id": "8155dc3f-9df5-4049-acc4-c517d6cd3380",
+                "itemName": "Needed (i.e. Cross arm strap, etc.)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:58.484Z",
+                "id": "aaa37532-5dcf-4d0a-a4a5-3206edde21e8",
+                "itemName": "Double Lanyard Required",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:58.298Z",
+                "id": "e8026be6-4fd5-4625-975e-fbb850dfcc81",
+                "itemName": "Harness",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-FPS",
+          "masterTitle": "FALL PROTECTION SYSTEM",
+          "updatedAt": "2025-12-27T10:31:58.127Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:23.186Z",
+          "displayOrder": 12,
+          "id": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:24.638Z",
+                "id": "03584a66-0898-47b4-9c29-ac5af3053d6f",
+                "itemName": "Reviewed Ladder Safety",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:23.970Z",
+                "id": "374f3a2e-c742-4f45-8ff6-43cabf10eb50",
+                "itemName": "Ladder Tied Off or Held",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:24.391Z",
+                "id": "881a852a-4af6-44b3-bba5-e0a6a5f5523f",
+                "itemName": "Ladder Inspected within Last Quarter",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:24.175Z",
+                "id": "ae9b7c2f-1968-4c0d-b2ad-1f0184826dec",
+                "itemName": "Proper Angle and Placement",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:23.692Z",
+                "id": "f7e17185-0030-4abd-8a0e-19d9cfb5c1f7",
+                "itemName": "Inspect General Condition Prior",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-La",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:23.186Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:54.155Z",
+          "displayOrder": 2,
+          "id": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:31:55.275Z",
+                "id": "97c12675-f494-46da-82b5-ac96bb7e3856",
+                "itemName": "Elect. Insulated Glov",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:31:55.429Z",
+                "id": "bfd7f023-8ab1-4529-aca8-eddda0c55822",
+                "itemName": "Cut-Resistant Arm Sleeves",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:31:54.542Z",
+                "id": "c4ab1df1-d2db-46d6-a516-188408ddbc33",
+                "itemName": "Welder Gloves",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:31:54.363Z",
+                "id": "e4dccc29-08b7-496f-840a-79f97b28ada6",
+                "itemName": "Cut Resistant Gloves",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:31:54.736Z",
+                "id": "f103e4de-4d5c-4408-bb84-934fdc3b4cbd",
+                "itemName": "Nitrile Gloves",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:31:55.082Z",
+                "id": "f37bc8ce-64a2-4549-ad1c-6b71c2a4a417",
+                "itemName": "Rubber Gloves",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-HP",
+          "masterTitle": "HAND PROTECTION",
+          "updatedAt": "2025-12-27T10:31:54.155Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:32:01.980Z",
+          "displayOrder": 7,
+          "id": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:02.528Z",
+                "id": "05cb06b0-1eb9-4968-954f-5096fcc149e1",
+                "itemName": "Tyvek Disposable Suits",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:02.201Z",
+                "id": "522ff4d9-5c60-4002-be91-eb4151a1bfed",
+                "itemName": "Coveralls",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:02.761Z",
+                "id": "6fb51b91-6fc5-4ed8-be6f-363bea2be8f7",
+                "itemName": "Proper Safety Vest (for Task)",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:03.284Z",
+                "id": "b5d44eff-1bc9-46ec-b338-361bb3f28a1e",
+                "itemName": "Shoe Coverings",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:03.102Z",
+                "id": "f61f5495-b478-4cba-864b-9a753b97a00d",
+                "itemName": "Rain Suit",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-SC",
+          "masterTitle": "SPECIAL CLOTHING",
+          "updatedAt": "2025-12-27T10:32:01.980Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:30.984Z",
+          "displayOrder": 17,
+          "id": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:31.129Z",
+                "id": "05977d6d-3a7a-4bd1-8012-7744dbe3a585",
+                "itemName": "Head Stress Monitoring > 85",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:31.277Z",
+                "id": "34bacf9e-537f-4225-b034-5845c18bb846",
+                "itemName": "Liquids Available",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:32.252Z",
+                "id": "60720130-2a85-461a-8d0e-3e1b288bb6bb",
+                "itemName": "Cool Down Periods",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:32.404Z",
+                "id": "b8b7026b-fe15-4f77-9033-7fa092a03706",
+                "itemName": "Sunscreen",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:32.610Z",
+                "id": "f852846d-9381-47a6-b84d-3ce7707d2368",
+                "itemName": "Reviewed Heat Symptoms",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-HSP",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:30.984Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:12.507Z",
+          "displayOrder": 4,
+          "id": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:12.700Z",
+                "id": "8248df94-d6c4-4316-b85f-f1b80b62fd90",
+                "itemName": "Protected from Water",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:13.161Z",
+                "id": "b5e79344-945f-409c-9926-d51862e15ea8",
+                "itemName": "Reviewed Elect. Safety Procedures",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:13.025Z",
+                "id": "b84454a1-094e-4e41-91ee-d10ba0fb35f1",
+                "itemName": "Lock Out/Tag Out/Try Out",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:13.474Z",
+                "id": "bae8d57a-570b-472f-9560-4163a2688eda",
+                "itemName": "GCFI in Use",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:13.297Z",
+                "id": "e7edd712-23c6-4e26-b6e4-1db766d694f8",
+                "itemName": "Confirm Equip. De-Energized",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:13.617Z",
+                "id": "f5c6e447-948f-4834-b938-405f22d01b85",
+                "itemName": "Existing Cords Protected",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-Ex",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:12.507Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:21.598Z",
+          "displayOrder": 11,
+          "id": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:22.749Z",
+                "id": "1416f082-94c8-474f-bc14-b521e36b27a6",
+                "itemName": "Reviewed Proper Lifting Technique",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:21.953Z",
+                "id": "655ae32e-b522-4737-abf8-968a01f3a8ac",
+                "itemName": "Back Support Assistance",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:22.960Z",
+                "id": "7731d6eb-f2f3-4247-ad9e-f25ffdb10b44",
+                "itemName": "Reviewed Equip. for Proper Lifting",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:21.751Z",
+                "id": "cfd88c26-42dd-4227-bb43-2673f71e2d19",
+                "itemName": "Hand Protection Required",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-ML",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:21.598Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:13.797Z",
+          "displayOrder": 6,
+          "id": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:14.001Z",
+                "id": "72c8e2ca-0e70-4551-b331-2b68a7925e46",
+                "itemName": "Hot Work Permit",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:14.650Z",
+                "id": "73594ffc-ce37-449a-a8a9-960ddd3f1e97",
+                "itemName": "Flammable/Combustible Material Removed",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:14.188Z",
+                "id": "bd6535c7-d6a4-4594-8b34-8621efa5779a",
+                "itemName": "Fire Watch",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:14.341Z",
+                "id": "c482adb5-7b53-44eb-b2fd-5ea15b740dab",
+                "itemName": "Adjacent Area Protected",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:14.481Z",
+                "id": "d0cb40ba-34e5-4748-b7e1-b88e44911caf",
+                "itemName": "Fire Extinguishers",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-FH",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:13.797Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:28.636Z",
+          "displayOrder": 15,
+          "id": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:28.894Z",
+                "id": "083043f9-5929-48a7-afed-426b73a223ce",
+                "itemName": "Reviewed & Made SDS’ Readily Available",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:29.210Z",
+                "id": "abbfbc55-b813-46cc-aa57-36ba2236b9ef",
+                "itemName": "Exposure Monitoring Req.",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:29.429Z",
+                "id": "bc235faf-1e3c-4dd4-a4fb-e4b129f36657",
+                "itemName": "Identified Proper PPE",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:29.026Z",
+                "id": "c46042e9-a4b7-490b-b5df-1ede0835be2e",
+                "itemName": "Have Proper Containers w/ Labels",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-WC",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:28.636Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:37.922Z",
+          "displayOrder": 19,
+          "id": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:38.599Z",
+                "id": "1509d330-9582-4a6c-ae66-feda4572fc3c",
+                "itemName": "Animals/Reptiles/Insects",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:38.192Z",
+                "id": "5c8e5c94-0ed8-4436-9962-ca2d060f2a81",
+                "itemName": "Terrain",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:38.051Z",
+                "id": "75a190b3-9cf5-476d-ad52-79a4f65743a1",
+                "itemName": "Weather",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:38.385Z",
+                "id": "b0a71d2d-5852-413e-ad5c-c22e71daea86",
+                "itemName": "Biological Hazard",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-NSH",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:37.922Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:15.446Z",
+          "displayOrder": 7,
+          "id": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:16.246Z",
+                "id": "3166dc76-645e-453a-81c5-c402b779d829",
+                "itemName": "Traffic Barricades",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 5,
+                "createdAt": "2025-12-27T10:32:15.934Z",
+                "id": "48c20318-3129-4c44-9b19-4fca1f776fd3",
+                "itemName": "Cones",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:15.619Z",
+                "id": "7503532d-60b3-4673-82d1-67c64e58852f",
+                "itemName": "Sign",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:16.065Z",
+                "id": "a1efaa30-f9f6-45f3-930d-0031d1659f4f",
+                "itemName": "Lane Closure",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:15.799Z",
+                "id": "b1069a07-0659-4c03-8e7e-62ed1780ec8c",
+                "itemName": "Communication w/ Operator",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032",
+                "mastercode": "",
+                "displayOrder": 6,
+                "createdAt": "2025-12-27T10:32:16.482Z",
+                "id": "f0466a4c-912c-401b-b375-3ee25f3b7781",
+                "itemName": "Trained Flagging Personnel or Protected Spotters",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-VTHE",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:15.446Z"
+        },
+        {
+          "categoryName": "HAZARDS-CONTROL-MEASURE",
+          "createdAt": "2025-12-27T10:32:38.733Z",
+          "displayOrder": 22,
+          "id": "9b0e4f8a-1d52-4c69-8a73-26e7d5c93121",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "9b0e4f8a-1d52-4c69-8a73-26e7d5c93121",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:39.050Z",
+                "id": "46dc2028-faf7-4beb-ab5f-a082ba65d86d",
+                "itemName": "Work Area Swept with Sweeping Compound",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "9b0e4f8a-1d52-4c69-8a73-26e7d5c93121",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:38.856Z",
+                "id": "5957d5c1-2ffd-42b6-bb62-906248aaffcc",
+                "itemName": "Trash Properly Disposed of at Regular Intervals",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "HCM-HK",
+          "masterTitle": "",
+          "updatedAt": "2025-12-27T10:32:38.733Z"
+        },
+        {
+          "categoryName": "REQUIRED-PPE",
+          "createdAt": "2025-12-27T10:31:59.924Z",
+          "displayOrder": 6,
+          "id": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10",
+          "isActive": true,
+          "items": {
+            "items": [
+              {
+                "masterID": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10",
+                "mastercode": "",
+                "displayOrder": 3,
+                "createdAt": "2025-12-27T10:32:00.983Z",
+                "id": "232da8cf-e515-4c3a-9e2c-6547c856b076",
+                "itemName": "Chemical Goggles",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10",
+                "mastercode": "",
+                "displayOrder": 4,
+                "createdAt": "2025-12-27T10:32:01.804Z",
+                "id": "526c2578-e68a-413c-a40c-31e3ef369fd3",
+                "itemName": "Welding Hood",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10",
+                "mastercode": "",
+                "displayOrder": 1,
+                "createdAt": "2025-12-27T10:32:00.136Z",
+                "id": "c56cc288-b43c-421c-8dd2-a61566c05960",
+                "itemName": "Safety Glasses",
+                "itemType": "List",
+                "isActive": true
+              },
+              {
+                "masterID": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10",
+                "mastercode": "",
+                "displayOrder": 2,
+                "createdAt": "2025-12-27T10:32:00.375Z",
+                "id": "e56b434f-7b5f-4a59-9712-cfd96ee9975c",
+                "itemName": "Face Shield",
+                "itemType": "List",
+                "isActive": true
+              }
+            ]
+          },
+          "masterDescription": null,
+          "masterName": "PPE-EP",
+          "masterTitle": "EYE PROTECTION",
+          "updatedAt": "2025-12-27T10:31:59.924Z"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.step-progress {
+  height: 4px;
+}
+
+.step-labels small {
+  font-size: 12px;
+}
+
+.active-step {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.ppe-header {
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #e9f2f9;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+
+.remove-icon {
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 18px;
+}
+
+.remove-icon:hover {
+  color: #a71d2a;
+  transform: scale(1.15);
+}

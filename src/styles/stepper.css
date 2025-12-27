@@ -1,0 +1,89 @@
+/* Remove step numbers */
+.react-form-stepper .stepper-number {
+  color: transparent !important;
+}
+
+/* Completed step tick */
+.react-form-stepper .completed-step .stepper-circle::before {
+  content: "✓";
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Active step orange ring */
+.react-form-stepper .active-step .stepper-circle {
+  border: 2px solid #ff6a00 !important;
+  background-color: #ffffff !important;
+}
+
+/* Inactive steps */
+.react-form-stepper .stepper-circle {
+  background-color: #e9edff;
+}
+
+/* Labels */
+.react-form-stepper .stepper-label {
+  color: #9aa3c2;
+  white-space: pre-line;
+}
+
+.react-form-stepper .active-step + .stepper-label {
+  color: #ff6a00;
+  font-weight: 600;
+}
+
+.react-form-stepper .completed-step + .stepper-label {
+  color: #000000;
+}
+
+.custom-modal .template-container {
+    padding:0px !important;
+    max-width: 100%;
+}
+
+/* ---------- BASE STEP CIRCLE ---------- */
+[class*="StepButtonContent"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* ---------- COMPLETED STEP ---------- */
+[class*="StepButtonContent"].completed {
+  font-size: 0 !important; /* hide number */
+  background-color: #2ecc71 !important;
+}
+
+[class*="StepButtonContent"].completed::after {
+  content: "✔";
+  font-size: 14px;
+  font-weight: 700;
+  color: #e9edff;
+}
+
+/* ---------- ACTIVE STEP (orange ring + dot) ---------- */
+[class*="StepButtonContent"].active {
+  background-color: #e9edff !important;
+  border: 2px solid #ff6a00 !important;
+  font-size: 0;
+}
+
+[class*="StepButtonContent"].active::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #ff6a00;
+  border-radius: 50%;
+}
+
+/* ---------- INACTIVE STEP ---------- */
+[class*="StepButtonContent"].inactive {
+  background-color: #a9aec0 !important;
+  color: #a9aec0;
+}
+
+.StepButton .active{
+    background-color: rgb(233 237 255) !important;
+}

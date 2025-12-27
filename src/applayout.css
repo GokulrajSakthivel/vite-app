@@ -1,0 +1,141 @@
+ .app-root {
+     height: 100vh;
+     /* overflow: hidden !important; */
+ }
+ body{
+overflow: hidden!important;
+ }
+
+ .main-container {
+     padding-top: 32px;
+     padding-bottom: 45px;
+     height: 100%;
+ }
+
+ /* DESKTOP SIDEBAR (LG+) */
+ .sidebar {
+     position: fixed;
+     top: 56px;
+     bottom: 40px;
+     left: 0;
+     width: 16.6667%;
+     background: #f8f9fa;
+     border-right: 1px solid #ddd;
+     overflow-y: auto;
+ }
+
+ /* CONTENT */
+ .content-area {
+     margin-left: 16.6667%;
+     height: 100%;
+     overflow-y: auto;
+     padding: 1rem;
+     background: #fff;
+ }
+
+ /* MOBILE + TABLET */
+ @media (max-width: 991px) {
+     .content-area {
+         margin-left: 0;
+     }
+ }
+
+ /* FOOTER */
+ .footer {
+     position: fixed;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 40px;
+     line-height: 40px;
+ }
+
+ /* SIDEBAR NAV */
+ .sidebar-nav .nav-link {
+     padding: 12px 16px;
+     color: #333;
+ }
+
+ .sidebar-nav .nav-link:hover {
+     background: #e9ecef;
+ }
+
+ /* OFFCANVAS WIDTH */
+ .mobile-sidebar {
+     width: 280px;
+ }
+
+ /* Header */
+.header-bg {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+/* Language Toggle */
+.lang-toggle {
+  background: var(--orange);
+  border-radius: 20px;
+  padding: 3px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background: #fff;
+  color: var(--orange);
+}
+
+/* Notification */
+.notification {
+  position: relative;
+  cursor: pointer;
+}
+
+.notify-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background:  var(--orange);
+  border-radius: 50%;
+}
+
+/* Profile */
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text {
+  line-height: 1.2;
+}
+
+.profile-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-role {
+  font-size: 11px;
+  color: #777;
+}
+

@@ -1,0 +1,14 @@
+{
+  "appName": "My App",
+  "home": "Home",
+  "about": "About",
+  "todo": "Todo",
+
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+
+  "enterTodoName": "Enter todo name",
+  "add": "Add",
+  "update": "Update",
+  "delete": "Delete"
+}

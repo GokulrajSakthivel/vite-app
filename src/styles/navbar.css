@@ -1,0 +1,29 @@
+.top-navbar {
+  height: 65px;
+  background: #fff !important;
+}
+
+.search-input {
+  max-width: 240px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.Online{
+  border-radius: 40%;
+  color:black;
+  border:1px soild rgb(147, 241, 147);
+   background: green;
+}
+.Offline{
+  border-radius: 40%;
+  color:black;
+  border:1px soild rgb(147, 241, 147);
+  background: red;
+}

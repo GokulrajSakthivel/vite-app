@@ -1,0 +1,14 @@
+{
+  "appName": "Mi Aplicación",
+  "home": "Inicio",
+  "about": "Acerca de",
+  "todo": "Tareas",
+
+  "darkMode": "Modo Oscuro",
+  "lightMode": "Modo Claro",
+
+  "enterTodoName": "Ingrese nombre de tarea",
+  "add": "Agregar",
+  "update": "Actualizar",
+  "delete": "Eliminar"
+}
