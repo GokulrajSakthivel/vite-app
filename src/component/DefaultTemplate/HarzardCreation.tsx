@@ -64,39 +64,59 @@ const HarzardCreation: React.FC = () => {
     setShowModal(false);
   };
 
-  useEffect(() => {
-    // Fetch and transform data from JSON file
-    fetch("/src/component/DefaultTemplate/RetriveMasterData.Json")
-      .then(res => res.json())
-      .then(data => {
-        // Filter hazards control measures from master data
-        const hazardItems = data.data.listMasters.items.filter(
-          (item: any) => item.categoryName === "HAZARDS-CONTROL-MEASURE" && item.isActive
-        );
+useEffect(() => {
+  fetch("/src/component/DefaultTemplate/RetriveMasterData.Json")
+    .then(res => res.json())
+    .then(data => {
 
-        // Sort by displayOrder
-        hazardItems.sort((a: any, b: any) => a.displayOrder - b.displayOrder);
+      // 1️⃣ Get only HAZARD category
+      const hazardMasters = data.data.listMasters.items.filter(
+        (item: any) => item.categoryName === "HAZARD"
+      );
 
-        // Transform the data to match our Hazard interface
-        const transformedHazards: Hazard[] = hazardItems.map((item: any, index: number) => ({
-          id: index + 1,
-          title: item.MasterDescription,
-          hasClearance: item.MasterDescription.toLowerCase().includes('utilities'),
-          // controls: item.items.items
-          //   .filter((control: any) => control.isActive)
-          //   .map((control: any) => ({
-          //     label: control.itemName,
-          //     isPresent: true
-          //   }))
-        }));
+      if (!hazardMasters.length) return;
 
-        setHazards(transformedHazards);
-        console.log('Loaded hazards from JSON:', transformedHazards);
-      })
-      .catch(error => {
-        console.error('Error loading hazards:', error);
-      });
-  }, []);
+      // 2️⃣ Sort hazards by displayOrder
+      const hazardsSorted = hazardMasters[0].items.items.sort(
+        (a: any, b: any) => a.displayOrder - b.displayOrder
+      );
+
+      // 3️⃣ Transform hazards
+      const transformedHazards = hazardsSorted.map(
+        (hazard: any, index: number) => {
+
+          // match control master using mastercode
+          const matchedMaster = data.data.listMasters.items.find(
+            (m: any) => m.masterName === hazard.mastercode
+          );
+
+          return {
+            id: index + 1,
+            title: hazard.itemName,
+
+            controls: matchedMaster
+              ? matchedMaster.items.items
+                  .sort(
+                    (a: any, b: any) =>
+                      a.displayOrder - b.displayOrder
+                  )
+                  .map((control: any) => ({
+                    label: control.itemName,
+                    isPresent: true
+                  }))
+              : []
+          };
+        }
+      );
+
+      setHazards(transformedHazards);
+     
+    })
+    .catch(error => {
+      console.error("Error loading hazards:", error);
+    });
+}, []);
+
   return (
     <>
       <Card className="shadow-sm bg-light">
@@ -119,6 +139,7 @@ const HarzardCreation: React.FC = () => {
                     <Form.Check
                       type="checkbox"
                       className="small-checkbox"
+                      disabled
                       label={<strong>{hazard.title}</strong>}
                     />
                   </Col>
@@ -133,7 +154,7 @@ const HarzardCreation: React.FC = () => {
                     </Col>
                   )}
                 </Row>
-{/* {hazard?.controls.length > 0 && (
+{hazard?.controls.length > 0 && (
                 <Row className="mt-2">
                   {hazard?.controls
                     .filter(c => c.isPresent === true)
@@ -143,10 +164,11 @@ const HarzardCreation: React.FC = () => {
                           type="checkbox"
                           label={control.label}
                           className="mb-2 small-checkbox"
+                          disabled
                         />
                       </Col>
                     ))}
-                </Row>)} */}
+                </Row>)}
 <br/>
                 <div className="hazard-actions mt-4 pt-3">
                   <img
@@ -175,7 +197,7 @@ const HarzardCreation: React.FC = () => {
       >
         <Card>
           <Card.Header className="d-flex align-items-center justify-content-between">
-            <span>{editedHazard?.title}</span>
+            {/* <span>{editedHazard?.title}</span> */}
 
             <Form.Check
               type="checkbox"

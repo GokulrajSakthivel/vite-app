@@ -109,7 +109,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
           {/* Content */}
           <Col xs={12} lg={10} className="content-area ">
-          <Container fluid className="pt-2 pb-3">
+          <Container fluid className="pt-4 pb-3">
 
             {children}
             </Container>

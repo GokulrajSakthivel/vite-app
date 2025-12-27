@@ -18,6 +18,7 @@ export default function TempleteCreation() {
                 </h6>
             </div>
             {/* <TemplateLibrary /> */}
+            {/* <HarzardCreation /> */}
             {stage === 0 && <TemplateLibrary />}
             {stage === 1 && <HarzardCreation />}
             {stage === 2 && <RequirementCreation />}
