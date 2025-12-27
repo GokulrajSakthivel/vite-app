@@ -128,3 +128,153 @@ export const onDeleteAddress = /* GraphQL */ `subscription OnDeleteAddress($filt
   APITypes.OnDeleteAddressSubscriptionVariables,
   APITypes.OnDeleteAddressSubscription
 >;
+export const onCreateMaster = /* GraphQL */ `subscription OnCreateMaster($filter: ModelSubscriptionMasterFilterInput) {
+  onCreateMaster(filter: $filter) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateMasterSubscriptionVariables,
+  APITypes.OnCreateMasterSubscription
+>;
+export const onUpdateMaster = /* GraphQL */ `subscription OnUpdateMaster($filter: ModelSubscriptionMasterFilterInput) {
+  onUpdateMaster(filter: $filter) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateMasterSubscriptionVariables,
+  APITypes.OnUpdateMasterSubscription
+>;
+export const onDeleteMaster = /* GraphQL */ `subscription OnDeleteMaster($filter: ModelSubscriptionMasterFilterInput) {
+  onDeleteMaster(filter: $filter) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteMasterSubscriptionVariables,
+  APITypes.OnDeleteMasterSubscription
+>;
+export const onCreateMasterItem = /* GraphQL */ `subscription OnCreateMasterItem(
+  $filter: ModelSubscriptionMasterItemFilterInput
+) {
+  onCreateMasterItem(filter: $filter) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateMasterItemSubscriptionVariables,
+  APITypes.OnCreateMasterItemSubscription
+>;
+export const onUpdateMasterItem = /* GraphQL */ `subscription OnUpdateMasterItem(
+  $filter: ModelSubscriptionMasterItemFilterInput
+) {
+  onUpdateMasterItem(filter: $filter) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateMasterItemSubscriptionVariables,
+  APITypes.OnUpdateMasterItemSubscription
+>;
+export const onDeleteMasterItem = /* GraphQL */ `subscription OnDeleteMasterItem(
+  $filter: ModelSubscriptionMasterItemFilterInput
+) {
+  onDeleteMasterItem(filter: $filter) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteMasterItemSubscriptionVariables,
+  APITypes.OnDeleteMasterItemSubscription
+>;

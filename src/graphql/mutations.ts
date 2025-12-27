@@ -146,3 +146,165 @@ export const deleteAddress = /* GraphQL */ `mutation DeleteAddress(
   APITypes.DeleteAddressMutationVariables,
   APITypes.DeleteAddressMutation
 >;
+export const createMaster = /* GraphQL */ `mutation CreateMaster(
+  $input: CreateMasterInput!
+  $condition: ModelMasterConditionInput
+) {
+  createMaster(input: $input, condition: $condition) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateMasterMutationVariables,
+  APITypes.CreateMasterMutation
+>;
+export const updateMaster = /* GraphQL */ `mutation UpdateMaster(
+  $input: UpdateMasterInput!
+  $condition: ModelMasterConditionInput
+) {
+  updateMaster(input: $input, condition: $condition) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateMasterMutationVariables,
+  APITypes.UpdateMasterMutation
+>;
+export const deleteMaster = /* GraphQL */ `mutation DeleteMaster(
+  $input: DeleteMasterInput!
+  $condition: ModelMasterConditionInput
+) {
+  deleteMaster(input: $input, condition: $condition) {
+    id
+    masterTitle
+    categoryName
+    masterName
+    masterDescription
+    displayOrder
+    isActive
+    items {
+      nextToken
+      startedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteMasterMutationVariables,
+  APITypes.DeleteMasterMutation
+>;
+export const createMasterItem = /* GraphQL */ `mutation CreateMasterItem(
+  $input: CreateMasterItemInput!
+  $condition: ModelMasterItemConditionInput
+) {
+  createMasterItem(input: $input, condition: $condition) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateMasterItemMutationVariables,
+  APITypes.CreateMasterItemMutation
+>;
+export const updateMasterItem = /* GraphQL */ `mutation UpdateMasterItem(
+  $input: UpdateMasterItemInput!
+  $condition: ModelMasterItemConditionInput
+) {
+  updateMasterItem(input: $input, condition: $condition) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateMasterItemMutationVariables,
+  APITypes.UpdateMasterItemMutation
+>;
+export const deleteMasterItem = /* GraphQL */ `mutation DeleteMasterItem(
+  $input: DeleteMasterItemInput!
+  $condition: ModelMasterItemConditionInput
+) {
+  deleteMasterItem(input: $input, condition: $condition) {
+    masterID
+    id
+    itemName
+    itemType
+    itemAttributes
+    mastercode
+    displayOrder
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteMasterItemMutationVariables,
+  APITypes.DeleteMasterItemMutation
+>;

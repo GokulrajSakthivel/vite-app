@@ -20,3 +20,35 @@ type Address
   country: String!
   phone: String!
 }
+
+
+
+type Master
+@model
+@auth(rules: [{ allow: private, provider: userPools}]) {
+  id: ID! @primaryKey
+  masterTitle: String
+  categoryName: String
+  masterName: String
+  masterDescription: String
+  displayOrder: Int
+  isActive: Boolean
+  items: [MasterItem] @hasMany(fields: ["id"])
+}
+ 
+type MasterItem
+@model
+@auth(rules: [{ allow: private, provider: userPools}]) {
+  masterID: ID!
+    @primaryKey(sortKeyFields: ["id"])
+ 
+  id: ID!
+  itemName: String
+  itemType: String
+  itemAttributes: [String]
+  mastercode: String
+  displayOrder: Int  
+  isActive: Boolean  
+}
+
+
