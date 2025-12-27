@@ -110,7 +110,7 @@ useEffect(() => {
       );
 
       setHazards(transformedHazards);
-      console.log("Final Hazard Data:", transformedHazards);
+     
     })
     .catch(error => {
       console.error("Error loading hazards:", error);
