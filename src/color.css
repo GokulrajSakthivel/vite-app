@@ -228,3 +228,13 @@ hr {
     cursor: default;
     opacity: 1.0;
 }
+.footerbg{
+  background: var(--hearderbgcolor) !important;
+}
+
+.footerText{
+  color: var(--textblack);
+  opacity: 1;
+ 
+
+}
