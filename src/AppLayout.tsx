@@ -118,8 +118,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       
       </Container>
 
-      <footer className="footer bg-dark text-white text-center">
-        © 2025  App
+      <footer className="footer bg-dark text-white text-center footerbg">
+       
+        <p className="footerText"> ©  powered by STGINFO</p>
       </footer>
     </div>
   );

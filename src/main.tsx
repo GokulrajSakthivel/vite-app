@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import'./color.css';
 import'./../src/styles/fonts.css';
 import'./applayout.css'
+import { LoaderProvider } from './assets/utilits/LoaderContext.tsx';
 
 Amplify.configure({
   ...awsExports,
@@ -24,6 +25,8 @@ Amplify.configure({
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <App />
+    <LoaderProvider>
+      <App />
+    </LoaderProvider>
   </BrowserRouter>
 );

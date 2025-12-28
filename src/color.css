@@ -228,3 +228,23 @@ hr {
     cursor: default;
     opacity: 1.0;
 }
+.footerbg{
+  background: var(--hearderbgcolor) !important;
+}
+
+.footerText{
+  color: var(--textblack);
+  opacity: 1;
+ 
+
+}
+
+.headerWithUnderline{
+  text-decoration: underline;
+}
+.grayShoud{
+  color:var(--tagGray);
+}
+.ligtblocktext{
+  color:var(--textblack);
+}
