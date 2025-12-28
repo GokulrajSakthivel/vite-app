@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DataStore } from "aws-amplify";
-import { Master, MasterItem } from "./models";
+import { Master, MasterItem, PtpTemplateDef, PtpOptionsInfo, HazardandMeasuresControlDef } from "./models";
+
 
 /*
   IMPORTANT:
@@ -25,794 +26,796 @@ export default function AddMasterAndItemsWithDataStore(_: Props) {
   const [savedItems, setSavedItems] = useState<any[]>([]);
   const [failedSaves, setFailedSaves] = useState<string[]>([]);
 
-  
+  const [ptpTemplateOptions , setPtpTemplateOptions] = useState<PtpTemplateDef>();
+
+
   const master = [
-  {
-    "masterID": {
-      "S": "14f3d7b9-2e8a-4c61-9a05-c1b6e0d41420"
+    {
+      "masterID": {
+        "S": "14f3d7b9-2e8a-4c61-9a05-c1b6e0d41420"
+      },
+      "categoryName": {
+        "S": "USER-ROLE"
+      },
+      "displayOrder": {
+        "N": "0"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "User Group"
+      },
+      "masterName": {
+        "S": "Group"
+      },
+      "masterTitle": {
+        "S": ""
+      }
     },
-    "categoryName": {
-      "S": "USER-ROLE"
+    {
+      "masterID": {
+        "S": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PERMITS"
+      },
+      "displayOrder": {
+        "N": "0"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "CRITICAL ACTIVITY PERMITS"
+      },
+      "masterName": {
+        "S": "PERMITS"
+      },
+      "masterTitle": {
+        "S": ""
+      }
     },
-    "displayOrder": {
-      "N": "0"
+    {
+      "masterID": {
+        "S": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03"
+      },
+      "categoryName": {
+        "S": "REQUIRED-CHECKLIST"
+      },
+      "displayOrder": {
+        "N": "0"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "REQUIRED CHECKLIST"
+      },
+      "masterName": {
+        "S": "CHECKLIST"
+      },
+      "masterTitle": {
+        "S": ""
+      }
     },
-    "isActive": {
-      "BOOL": true
+    {
+      "masterID": {
+        "S": "04d6f2a1-9e45-43bc-8a71-5c9b1f0d4e04"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "0"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "TASK-SPECIFIC REQUIRED PPE"
+      },
+      "masterName": {
+        "S": "PPE"
+      },
+      "masterTitle": {
+        "S": ""
+      }
     },
-    "MasterDescription": {
-      "S": "User Group"
+    {
+      "masterID": {
+        "S": "09c19e8b-7e1f-4F83-8f59-6a4d2b9e1c15"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "2"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-HP"
+      },
+      "masterTitle": {
+        "S": "HEAD PROTECTION"
+      }
     },
-    "masterName": {
-      "S": "Group"
+    {
+      "masterID": {
+        "S": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "2"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-HP"
+      },
+      "masterTitle": {
+        "S": "HAND PROTECTION"
+      }
     },
-    "masterTitle": {
-      "S": ""
+    {
+      "masterID": {
+        "S": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "3"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-FP"
+      },
+      "masterTitle": {
+        "S": "FOOT PROTECTION"
+      }
+    },
+    {
+      "masterID": {
+        "S": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "4"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-RP"
+      },
+      "masterTitle": {
+        "S": "RESPIRATORY PROTECTION"
+      }
+    },
+    {
+      "masterID": {
+        "S": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "5"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Identify System Used"
+      },
+      "masterName": {
+        "S": "PPE-FPS"
+      },
+      "masterTitle": {
+        "S": "FALL PROTECTION SYSTEM"
+      }
+    },
+    {
+      "masterID": {
+        "S": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "6"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-EP"
+      },
+      "masterTitle": {
+        "S": "EYE PROTECTION"
+      }
+    },
+    {
+      "masterID": {
+        "S": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11"
+      },
+      "categoryName": {
+        "S": "REQUIRED-PPE"
+      },
+      "displayOrder": {
+        "N": "7"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": ""
+      },
+      "masterName": {
+        "S": "PPE-SC"
+      },
+      "masterTitle": {
+        "S": "SPECIAL CLOTHING"
+      }
+    },
+    {
+      "masterID": {
+        "S": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12"
+      },
+      "categoryName": {
+        "S": "HAZARD"
+      },
+      "displayOrder": {
+        "N": "0"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "REQUIRED CHECKLIST"
+      },
+      "masterName": {
+        "S": "HAZARD"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "1"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Overhead Utilities"
+      },
+      "masterName": {
+        "S": "HCM-OU"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "2"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Crane or Other Lifting Equip"
+      },
+      "masterName": {
+        "S": "HCM-COLE"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "5"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Underground Utilities"
+      },
+      "masterName": {
+        "S": "HCM-UU"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "3"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Excavations"
+      },
+      "masterName": {
+        "S": "HCM-El"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "4"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Electrical"
+      },
+      "masterName": {
+        "S": "HCM-Ex"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "6"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Fire Hazard"
+      },
+      "masterName": {
+        "S": "HCM-FH"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "7"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Vehicular Traffic Deliveries (CAP)"
+      },
+      "masterName": {
+        "S": "HCM-VTHE"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "8"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Noise > 85 db"
+      },
+      "masterName": {
+        "S": "HCM-N85"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "9"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Hand & Power Tools"
+      },
+      "masterName": {
+        "S": "HCM-HPT"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "d9a6b8e4-1f50-4d63-8a7c-2e5c037b1929"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "10"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Hand Hazards"
+      },
+      "masterName": {
+        "S": "HCM-HH"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "11"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Manual Lifting"
+      },
+      "masterName": {
+        "S": "HCM-ML"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "12"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Ladders"
+      },
+      "masterName": {
+        "S": "HCM-La"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "13"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Slips, Trips, & Falls"
+      },
+      "masterName": {
+        "S": "HCM-STF"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "0e4a9b71-2f83-4d65-9c10-b7a5e6d12893"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "14"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Pinch Points"
+      },
+      "masterName": {
+        "S": "HCM-PP"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "15"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Working with Chemicals"
+      },
+      "masterName": {
+        "S": "HCM-WC"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "16"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Abestos or Lead Paint Potential (CAP)"
+      },
+      "masterName": {
+        "S": "HCM-ALPP"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "17"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Heat Stress Potential"
+      },
+      "masterName": {
+        "S": "HCM-HSP"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "18"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Environmental"
+      },
+      "masterName": {
+        "S": "HCM-En"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "20"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Adjacent Work Processes"
+      },
+      "masterName": {
+        "S": "HCM-AWP"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "21"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Barricades/Covers"
+      },
+      "masterName": {
+        "S": "HCM-BC"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "19"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Natural or Site Hazards"
+      },
+      "masterName": {
+        "S": "HCM-NSH"
+      },
+      "masterTitle": {
+        "S": ""
+      }
+    },
+    {
+      "masterID": {
+        "S": "9b0e4f8a-1d52-4c69-8a73-26e7d5c93121"
+      },
+      "categoryName": {
+        "S": "HAZARDS-CONTROL-MEASURE"
+      },
+      "displayOrder": {
+        "N": "22"
+      },
+      "isActive": {
+        "BOOL": true
+      },
+      "MasterDescription": {
+        "S": "Housekeeping"
+      },
+      "masterName": {
+        "S": "HCM-HK"
+      },
+      "masterTitle": {
+        "S": ""
+      }
     }
-  },
-  {
-    "masterID": {
-      "S": "27d6f8a9-0c1b-4e75-92a3-5b7e3c2d2739"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PERMITS"
-    },
-    "displayOrder": {
-      "N": "0"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "CRITICAL ACTIVITY PERMITS"
-    },
-    "masterName": {
-      "S": "PERMITS"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "03b71a8d-6c24-4b39-9e51-4f0d2a8c7b03"
-    },
-    "categoryName": {
-      "S": "REQUIRED-CHECKLIST"
-    },
-    "displayOrder": {
-      "N": "0"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "REQUIRED CHECKLIST"
-    },
-    "masterName": {
-      "S": "CHECKLIST"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "04d6f2a1-9e45-43bc-8a71-5c9b1f0d4e04"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "0"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "TASK-SPECIFIC REQUIRED PPE"
-    },
-    "masterName": {
-      "S": "PPE"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "09c19e8b-7e1f-4F83-8f59-6a4d2b9e1c15"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "2"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-HP"
-    },
-    "masterTitle": {
-      "S": "HEAD PROTECTION"
-    }
-  },
-  {
-    "masterID": {
-      "S": "05c19e8b-7d2f-4a63-8f05-6a4d2b9e1c05"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "2"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-HP"
-    },
-    "masterTitle": {
-      "S": "HAND PROTECTION"
-    }
-  },
-  {
-    "masterID": {
-      "S": "07e2f1a9-5c6d-4b38-9e7a-0d8c4b3a0707"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "3"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-FP"
-    },
-    "masterTitle": {
-      "S": "FOOT PROTECTION"
-    }
-  },
-  {
-    "masterID": {
-      "S": "08b3a7c9-2f6d-4e8a-91c5-d0f4b1e30808"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "4"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-RP"
-    },
-    "masterTitle": {
-      "S": "RESPIRATORY PROTECTION"
-    }
-  },
-  {
-    "masterID": {
-      "S": "09d8a2f7-5c1e-4b69-8f03-4e1c9b6a0909"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "5"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Identify System Used"
-    },
-    "masterName": {
-      "S": "PPE-FPS"
-    },
-    "masterTitle": {
-      "S": "FALL PROTECTION SYSTEM"
-    }
-  },
-  {
-    "masterID": {
-      "S": "0a1b9c3d-4e5f-468a-9b2c-7d8e0f1a0a10"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "6"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-EP"
-    },
-    "masterTitle": {
-      "S": "EYE PROTECTION"
-    }
-  },
-  {
-    "masterID": {
-      "S": "0b7e2c9a-6d1f-4b38-95a4-3c8f0e2d0b11"
-    },
-    "categoryName": {
-      "S": "REQUIRED-PPE"
-    },
-    "displayOrder": {
-      "N": "7"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": ""
-    },
-    "masterName": {
-      "S": "PPE-SC"
-    },
-    "masterTitle": {
-      "S": "SPECIAL CLOTHING"
-    }
-  },
-  {
-    "masterID": {
-      "S": "0c5a9e1b-2d7f-4c60-8b34-e1f0a9d50c12"
-    },
-    "categoryName": {
-      "S": "HAZARD"
-    },
-    "displayOrder": {
-      "N": "0"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "REQUIRED CHECKLIST"
-    },
-    "masterName": {
-      "S": "HAZARD"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "1"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Overhead Utilities"
-    },
-    "masterName": {
-      "S": "HCM-OU"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "0f8e1c5a-9b2d-4e36-84f7-0a6c3d2b0f15"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "2"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Crane or Other Lifting Equip"
-    },
-    "masterName": {
-      "S": "HCM-COLE"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "5"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Underground Utilities"
-    },
-    "masterName": {
-      "S": "HCM-UU"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "11b9e8d7-6c0a-4f12-9a53-2d1c7e8f1117"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "3"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Excavations"
-    },
-    "masterName": {
-      "S": "HCM-El"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "12d6a9f2-8e3c-45b7-9c10-f1b0a4d61218"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "4"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Electrical"
-    },
-    "masterName": {
-      "S": "HCM-Ex"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "13e4f9b1-7a2d-4c80-86d5-9a0c8b3f1319"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "6"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Fire Hazard"
-    },
-    "masterName": {
-      "S": "HCM-FH"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "20b4f9a7-1d2e-4c50-8a63-5c0e9d8b2032"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "7"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Vehicular Traffic Deliveries (CAP)"
-    },
-    "masterName": {
-      "S": "HCM-VTHE"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "3a7c2e91-6f44-4b3a-9d0a-2e1c8f7b1a10"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "8"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Noise > 85 db"
-    },
-    "masterName": {
-      "S": "HCM-N85"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "0c1e57d6-9a28-4f94-8b03-ae2c4b8d317a"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "9"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Hand & Power Tools"
-    },
-    "masterName": {
-      "S": "HCM-HPT"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "d9a6b8e4-1f50-4d63-8a7c-2e5c037b1929"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "10"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Hand Hazards"
-    },
-    "masterName": {
-      "S": "HCM-HH"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "4a71b8f2-d9c3-4e60-9a05-0c6d51e72377"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "11"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Manual Lifting"
-    },
-    "masterName": {
-      "S": "HCM-ML"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "5d1c8e92-3a74-4f60-9b12-7e0a6c4f1281"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "12"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Ladders"
-    },
-    "masterName": {
-      "S": "HCM-La"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "a9c3f5e1-6d42-4b80-8a71-2e7f019c3d52"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "13"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Slips, Trips, & Falls"
-    },
-    "masterName": {
-      "S": "HCM-STF"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "0e4a9b71-2f83-4d65-9c10-b7a5e6d12893"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "14"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Pinch Points"
-    },
-    "masterName": {
-      "S": "HCM-PP"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "c2b7d91e-8f30-4a54-9b06-5e1c7a0d6424"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "15"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Working with Chemicals"
-    },
-    "masterName": {
-      "S": "HCM-WC"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "f8a31b09-5d72-4e64-8c90-2b7d16a4e135"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "16"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Abestos or Lead Paint Potential (CAP)"
-    },
-    "masterName": {
-      "S": "HCM-ALPP"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "7d9e4c2a-1b65-4f08-9a73-6e5b0c812f46"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "17"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Heat Stress Potential"
-    },
-    "masterName": {
-      "S": "HCM-HSP"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "b4e17d5a-8c39-4a21-9f60-03c2a96b7e57"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "18"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Environmental"
-    },
-    "masterName": {
-      "S": "HCM-En"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "31c9e0b6-7d2f-4e54-8a19-f5a4b2d68708"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "20"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Adjacent Work Processes"
-    },
-    "masterName": {
-      "S": "HCM-AWP"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "d5b4c9a2-0f87-4b63-9e15-1a7c8e326b79"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "21"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Barricades/Covers"
-    },
-    "masterName": {
-      "S": "HCM-BC"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "8a9f20e1-4d6c-4f75-8b03-7e1c53a96d10"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "19"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Natural or Site Hazards"
-    },
-    "masterName": {
-      "S": "HCM-NSH"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  },
-  {
-    "masterID": {
-      "S": "9b0e4f8a-1d52-4c69-8a73-26e7d5c93121"
-    },
-    "categoryName": {
-      "S": "HAZARDS-CONTROL-MEASURE"
-    },
-    "displayOrder": {
-      "N": "22"
-    },
-    "isActive": {
-      "BOOL": true
-    },
-    "MasterDescription": {
-      "S": "Housekeeping"
-    },
-    "masterName": {
-      "S": "HCM-HK"
-    },
-    "masterTitle": {
-      "S": ""
-    }
-  }
-]
+  ]
 
 
-const masterItem = [{
+  const masterItem = [{
     "itemID": {
       "S": "1f9a5c3e-8b2d-4f41-90a7-d6e1b0c21f31"
     },
@@ -831,9 +834,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -857,9 +860,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -883,9 +886,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -909,9 +912,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -935,9 +938,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -961,9 +964,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "6"
     }
@@ -987,9 +990,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "7"
     }
@@ -1013,9 +1016,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "8"
     }
@@ -1039,9 +1042,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "9"
     }
@@ -1065,9 +1068,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1091,9 +1094,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1117,9 +1120,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1143,9 +1146,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -1169,9 +1172,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -1195,9 +1198,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "6"
     }
@@ -1221,9 +1224,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "7"
     }
@@ -1247,9 +1250,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "8"
     }
@@ -1273,9 +1276,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1299,9 +1302,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1325,9 +1328,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1351,9 +1354,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1377,9 +1380,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1403,9 +1406,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -1429,9 +1432,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -1455,9 +1458,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "6"
     }
@@ -1481,9 +1484,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1507,9 +1510,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1533,9 +1536,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1559,9 +1562,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -1585,9 +1588,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -1611,9 +1614,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -1637,9 +1640,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1663,9 +1666,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1689,9 +1692,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1715,9 +1718,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1741,9 +1744,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1767,9 +1770,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1793,9 +1796,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -1819,9 +1822,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -1845,9 +1848,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "6"
     }
@@ -1871,9 +1874,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "7"
     }
@@ -1897,9 +1900,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -1923,9 +1926,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -1949,9 +1952,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -1975,9 +1978,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -2001,9 +2004,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -2027,9 +2030,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -2053,9 +2056,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -2079,9 +2082,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -2105,9 +2108,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -2131,9 +2134,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-OU"
-},
+    "mastercode": {
+      "S": "HCM-OU"
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -2157,9 +2160,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -2183,9 +2186,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-Ex"
-},
+    "mastercode": {
+      "S": "HCM-Ex"
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -2209,9 +2212,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-El"
-},
+    "mastercode": {
+      "S": "HCM-El"
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -2235,9 +2238,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-UU"
-},
+    "mastercode": {
+      "S": "HCM-UU"
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -2261,9 +2264,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-FH"
-},
+    "mastercode": {
+      "S": "HCM-FH"
+    },
     "displayOrder": {
       "N": "6"
     }
@@ -2287,9 +2290,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-VTHE"
-},
+    "mastercode": {
+      "S": "HCM-VTHE"
+    },
     "displayOrder": {
       "N": "7"
     }
@@ -2313,9 +2316,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-N85"
-},
+    "mastercode": {
+      "S": "HCM-N85"
+    },
     "displayOrder": {
       "N": "8"
     }
@@ -2339,9 +2342,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-HPT"
-},
+    "mastercode": {
+      "S": "HCM-HPT"
+    },
     "displayOrder": {
       "N": "9"
     }
@@ -2365,9 +2368,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-HH"
-},
+    "mastercode": {
+      "S": "HCM-HH"
+    },
     "displayOrder": {
       "N": "10"
     }
@@ -2391,9 +2394,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-ML"
-},
+    "mastercode": {
+      "S": "HCM-ML"
+    },
     "displayOrder": {
       "N": "11"
     }
@@ -2417,9 +2420,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-La"
-},
+    "mastercode": {
+      "S": "HCM-La"
+    },
     "displayOrder": {
       "N": "12"
     }
@@ -2443,9 +2446,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-STF"
-},
+    "mastercode": {
+      "S": "HCM-STF"
+    },
     "displayOrder": {
       "N": "13"
     }
@@ -2469,9 +2472,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-PP"
-},
+    "mastercode": {
+      "S": "HCM-PP"
+    },
     "displayOrder": {
       "N": "14"
     }
@@ -2495,9 +2498,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-WC"
-},
+    "mastercode": {
+      "S": "HCM-WC"
+    },
     "displayOrder": {
       "N": "15"
     }
@@ -2521,9 +2524,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-ALPP"
-},
+    "mastercode": {
+      "S": "HCM-ALPP"
+    },
     "displayOrder": {
       "N": "16"
     }
@@ -2547,9 +2550,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-HSP"
-},
+    "mastercode": {
+      "S": "HCM-HSP"
+    },
     "displayOrder": {
       "N": "17"
     }
@@ -2573,9 +2576,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-En"
-},
+    "mastercode": {
+      "S": "HCM-En"
+    },
     "displayOrder": {
       "N": "18"
     }
@@ -2599,9 +2602,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-NSH"
-},
+    "mastercode": {
+      "S": "HCM-NSH"
+    },
     "displayOrder": {
       "N": "19"
     }
@@ -2625,9 +2628,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-BC"
-},
+    "mastercode": {
+      "S": "HCM-BC"
+    },
     "displayOrder": {
       "N": "20"
     }
@@ -2651,9 +2654,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-BC"
-},
+    "mastercode": {
+      "S": "HCM-BC"
+    },
     "displayOrder": {
       "N": "21"
     }
@@ -2677,9 +2680,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": "HCM-HK"
-},
+    "mastercode": {
+      "S": "HCM-HK"
+    },
     "displayOrder": {
       "N": "22"
     }
@@ -2703,9 +2706,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -2729,9 +2732,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -2755,9 +2758,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -2781,9 +2784,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -2807,9 +2810,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -2833,9 +2836,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "3"
     }
@@ -2859,9 +2862,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "5"
     }
@@ -2885,9 +2888,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "2"
     }
@@ -2911,9 +2914,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "4"
     }
@@ -2937,9 +2940,9 @@ const masterItem = [{
     "itemType": {
       "S": "List"
     },
-"mastercode":{
-   "S": ""
-},
+    "mastercode": {
+      "S": ""
+    },
     "displayOrder": {
       "N": "1"
     }
@@ -2951,7 +2954,7 @@ const masterItem = [{
     "itemName": { "S": "Subsurface survey" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -2961,7 +2964,7 @@ const masterItem = [{
     "itemName": { "S": "Received Ground Disturbance Permit" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -2971,7 +2974,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed As-Built" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -2981,7 +2984,7 @@ const masterItem = [{
     "itemName": { "S": "Owner Utilities Marked " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -2991,7 +2994,7 @@ const masterItem = [{
     "itemName": { "S": "Proper Sloping/Shoring" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3001,7 +3004,7 @@ const masterItem = [{
     "itemName": { "S": "Access/Ingress Provided" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3011,7 +3014,7 @@ const masterItem = [{
     "itemName": { "S": "Inspected Prior to Entering" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3021,7 +3024,7 @@ const masterItem = [{
     "itemName": { "S": "Barricades Provided" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3031,7 +3034,7 @@ const masterItem = [{
     "itemName": { "S": "Protected from Water" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3041,7 +3044,7 @@ const masterItem = [{
     "itemName": { "S": "Lock Out/Tag Out/Try Out" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3051,7 +3054,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Elect. Safety Procedures" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3061,7 +3064,7 @@ const masterItem = [{
     "itemName": { "S": "Confirm Equip. De-Energized" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3071,7 +3074,7 @@ const masterItem = [{
     "itemName": { "S": "GCFI in Use" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3081,7 +3084,7 @@ const masterItem = [{
     "itemName": { "S": "Existing Cords Protected" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3091,7 +3094,7 @@ const masterItem = [{
     "itemName": { "S": "Hot Work Permit " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3101,7 +3104,7 @@ const masterItem = [{
     "itemName": { "S": "Fire Watch" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3111,7 +3114,7 @@ const masterItem = [{
     "itemName": { "S": "Adjacent Area Protected" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3121,7 +3124,7 @@ const masterItem = [{
     "itemName": { "S": "Fire Extinguishers" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3131,7 +3134,7 @@ const masterItem = [{
     "itemName": { "S": "Flammable/Combustible Material Removed" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3141,7 +3144,7 @@ const masterItem = [{
     "itemName": { "S": "Sign " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3151,7 +3154,7 @@ const masterItem = [{
     "itemName": { "S": "Communication w/ Operator" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3161,7 +3164,7 @@ const masterItem = [{
     "itemName": { "S": "Cones" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3171,7 +3174,7 @@ const masterItem = [{
     "itemName": { "S": "Lane Closure" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3181,7 +3184,7 @@ const masterItem = [{
     "itemName": { "S": "Traffic Barricades" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3191,7 +3194,7 @@ const masterItem = [{
     "itemName": { "S": "Trained Flagging Personnel or Protected Spotters" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "6" }
   },
   {
@@ -3201,7 +3204,7 @@ const masterItem = [{
     "itemName": { "S": "Hearing Protection Required" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3211,7 +3214,7 @@ const masterItem = [{
     "itemName": { "S": "Ear Plugs" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3221,7 +3224,7 @@ const masterItem = [{
     "itemName": { "S": "Ear Muffs" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3231,7 +3234,7 @@ const masterItem = [{
     "itemName": { "S": "Both Ear Plugs & Ear Muffs" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3241,7 +3244,7 @@ const masterItem = [{
     "itemName": { "S": "Inspect General Condition" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3251,7 +3254,7 @@ const masterItem = [{
     "itemName": { "S": "GFCI Used" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3261,7 +3264,7 @@ const masterItem = [{
     "itemName": { "S": "Identified PPE" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3271,7 +3274,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Owner Manual Safety Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3281,7 +3284,7 @@ const masterItem = [{
     "itemName": { "S": "Guarding OK" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3291,7 +3294,7 @@ const masterItem = [{
     "itemName": { "S": "PPE – Proper Gloves, etc." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "6" }
   },
   {
@@ -3301,7 +3304,7 @@ const masterItem = [{
     "itemName": { "S": "Protected Sharp Edges" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3311,7 +3314,7 @@ const masterItem = [{
     "itemName": { "S": "Hand Protection Required" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3321,7 +3324,7 @@ const masterItem = [{
     "itemName": { "S": "Back Support Assistance" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3331,7 +3334,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Proper Lifting Technique" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3341,7 +3344,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Equip. for Proper Lifting" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3351,7 +3354,7 @@ const masterItem = [{
     "itemName": { "S": "Inspect General Condition Prior" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3361,7 +3364,7 @@ const masterItem = [{
     "itemName": { "S": "Ladder Tied Off or Held" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3371,7 +3374,7 @@ const masterItem = [{
     "itemName": { "S": "Proper Angle and Placement" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3381,7 +3384,7 @@ const masterItem = [{
     "itemName": { "S": "Ladder Inspected within Last Quarter" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3391,7 +3394,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Ladder Safety" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3401,7 +3404,7 @@ const masterItem = [{
     "itemName": { "S": "Inspect for Trip Hazards" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3411,7 +3414,7 @@ const masterItem = [{
     "itemName": { "S": "Work Zone Debris Free" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3421,7 +3424,7 @@ const masterItem = [{
     "itemName": { "S": "Tools & Material Properly Stored" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3431,7 +3434,7 @@ const masterItem = [{
     "itemName": { "S": "Hazards Marked" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3441,7 +3444,7 @@ const masterItem = [{
     "itemName": { "S": "Hazards Marked" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3451,7 +3454,7 @@ const masterItem = [{
     "itemName": { "S": "Extension Cords Properly Stored" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "6" }
   },
   {
@@ -3461,7 +3464,7 @@ const masterItem = [{
     "itemName": { "S": "Clear Paths of Egress" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "7" }
   },
   {
@@ -3471,7 +3474,7 @@ const masterItem = [{
     "itemName": { "S": "Working Near Operating Equip." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3481,7 +3484,7 @@ const masterItem = [{
     "itemName": { "S": "Hand/Body Positioning – Manual Material Handling" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3491,7 +3494,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed & Made SDS’ Readily Available" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3501,7 +3504,7 @@ const masterItem = [{
     "itemName": { "S": "Have Proper Containers w/ Labels" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3511,7 +3514,7 @@ const masterItem = [{
     "itemName": { "S": "Exposure Monitoring Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3521,7 +3524,7 @@ const masterItem = [{
     "itemName": { "S": "Identified Proper PPE" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3531,7 +3534,7 @@ const masterItem = [{
     "itemName": { "S": "Area Contains Asbestos or Lead" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3541,7 +3544,7 @@ const masterItem = [{
     "itemName": { "S": "Asbestos Controls in Place" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3551,7 +3554,7 @@ const masterItem = [{
     "itemName": { "S": "Lead Paint Controls in Place" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3561,7 +3564,7 @@ const masterItem = [{
     "itemName": { "S": "Exposure Monitoring Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3571,7 +3574,7 @@ const masterItem = [{
     "itemName": { "S": "Head Stress Monitoring > 85" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3581,7 +3584,7 @@ const masterItem = [{
     "itemName": { "S": "Liquids Available" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3591,7 +3594,7 @@ const masterItem = [{
     "itemName": { "S": "Cool Down Periods" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3601,7 +3604,7 @@ const masterItem = [{
     "itemName": { "S": "Sunscreen" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3611,7 +3614,7 @@ const masterItem = [{
     "itemName": { "S": "Reviewed Heat Symptoms" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3621,7 +3624,7 @@ const masterItem = [{
     "itemName": { "S": "Air Emissions" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3631,7 +3634,7 @@ const masterItem = [{
     "itemName": { "S": "Water Discharge" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3641,7 +3644,7 @@ const masterItem = [{
     "itemName": { "S": "Pollution Prevention" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3651,7 +3654,7 @@ const masterItem = [{
     "itemName": { "S": "Hazardous Waste" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3661,7 +3664,7 @@ const masterItem = [{
     "itemName": { "S": "Waste Minimization" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3671,7 +3674,7 @@ const masterItem = [{
     "itemName": { "S": "Other:" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "6" }
   },
   {
@@ -3681,7 +3684,7 @@ const masterItem = [{
     "itemName": { "S": "Notified Them of our Presence" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3691,7 +3694,7 @@ const masterItem = [{
     "itemName": { "S": "Others above/below " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3701,7 +3704,7 @@ const masterItem = [{
     "itemName": { "S": "Coordinated with Adjacent Employers" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3711,7 +3714,7 @@ const masterItem = [{
     "itemName": { "S": "Need Barriers Between" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3721,7 +3724,7 @@ const masterItem = [{
     "itemName": { "S": "Danger Barricade Tape Req. with Signage " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3731,7 +3734,7 @@ const masterItem = [{
     "itemName": { "S": "Secured Covers over Opening" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3741,7 +3744,7 @@ const masterItem = [{
     "itemName": { "S": "Caution Barricade Tape Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3751,7 +3754,7 @@ const masterItem = [{
     "itemName": { "S": "Rigid Railing Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3761,7 +3764,7 @@ const masterItem = [{
     "itemName": { "S": "Warning Signs Req." },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "5" }
   },
   {
@@ -3771,7 +3774,7 @@ const masterItem = [{
     "itemName": { "S": "Weather" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3781,7 +3784,7 @@ const masterItem = [{
     "itemName": { "S": "Terrain" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   },
   {
@@ -3791,7 +3794,7 @@ const masterItem = [{
     "itemName": { "S": "Biological Hazard" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "3" }
   },
   {
@@ -3801,7 +3804,7 @@ const masterItem = [{
     "itemName": { "S": "Animals/Reptiles/Insects" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "4" }
   },
   {
@@ -3811,7 +3814,7 @@ const masterItem = [{
     "itemName": { "S": "Trash Properly Disposed of at Regular Intervals " },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "1" }
   },
   {
@@ -3821,14 +3824,17 @@ const masterItem = [{
     "itemName": { "S": "Work Area Swept with Sweeping Compound" },
     "itemAttributes": { "S": "" },
     "itemType": { "S": "List" },
-"mastercode":{ "S": "" },
+    "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
   }
-]
+  ]
 
 
 
- async function fetchMaster() {
+
+
+
+  async function fetchMaster() {
     try {
       const allUsers = await DataStore.query(Master);
 
@@ -3848,64 +3854,64 @@ const masterItem = [{
   }
 
 
-function attrToPlain(v: any): any {
-  if (v == null) return undefined;
-  if (typeof v !== "object") return v;
-  if ("S" in v) return v.S;
-  if ("N" in v) {
-    const n = v.N;
-    const num = Number(n);
-    return Number.isFinite(num) ? num : n;
+  function attrToPlain(v: any): any {
+    if (v == null) return undefined;
+    if (typeof v !== "object") return v;
+    if ("S" in v) return v.S;
+    if ("N" in v) {
+      const n = v.N;
+      const num = Number(n);
+      return Number.isFinite(num) ? num : n;
+    }
+    if ("BOOL" in v) return v.BOOL;
+    if ("L" in v) return v.L.map(attrToPlain);
+    if ("M" in v) {
+      const out: Record<string, any> = {};
+      for (const k of Object.keys(v.M)) out[k] = attrToPlain(v.M[k]);
+      return out;
+    }
+    return v;
   }
-  if ("BOOL" in v) return v.BOOL;
-  if ("L" in v) return v.L.map(attrToPlain);
-  if ("M" in v) {
+
+  function toPlainObject(attrMap: Record<string, any>): Record<string, any> {
     const out: Record<string, any> = {};
-    for (const k of Object.keys(v.M)) out[k] = attrToPlain(v.M[k]);
+    for (const key of Object.keys(attrMap)) {
+      out[key] = attrToPlain(attrMap[key]);
+    }
     return out;
   }
-  return v;
-}
 
-function toPlainObject(attrMap: Record<string, any>): Record<string, any> {
-  const out: Record<string, any> = {};
-  for (const key of Object.keys(attrMap)) {
-    out[key] = attrToPlain(attrMap[key]);
+  function toModelMaster(plain: Record<string, any>) {
+    return {
+      id: plain.masterID ?? plain.masterId ?? plain.id,
+      categoryName: plain.categoryName ?? "",
+      displayOrder:
+        typeof plain.displayOrder === "number"
+          ? plain.displayOrder
+          : Number(plain.displayOrder) || 0,
+      isActive: typeof plain.isActive === "boolean" ? plain.isActive : !!plain.isActive,
+      MasterDescription: plain.MasterDescription ?? plain.masterDescription ?? "",
+      masterName: plain.masterName ?? "",
+      masterTitle: plain.masterTitle ?? "",
+    };
   }
-  return out;
-}
 
-function toModelMaster(plain: Record<string, any>) {
-  return {
-    id: plain.masterID ?? plain.masterId ?? plain.id,
-    categoryName: plain.categoryName ?? "",
-    displayOrder:
-      typeof plain.displayOrder === "number"
-        ? plain.displayOrder
-        : Number(plain.displayOrder) || 0,
-    isActive: typeof plain.isActive === "boolean" ? plain.isActive : !!plain.isActive,
-    MasterDescription: plain.MasterDescription ?? plain.masterDescription ?? "",
-    masterName: plain.masterName ?? "",
-    masterTitle: plain.masterTitle ?? "",
-  };
-}
-
-function toModelMasterItem(plain: Record<string, any>) {
-  return {
-    //  plain.itemID ?? plain.itemId ?? plain.id,
-    id: crypto.randomUUID(),
-    masterID: plain.masterID ?? plain.masterId ?? "",
-    mastercode:plain.mastercode,
-    isActive: typeof plain.isActive === "boolean" ? plain.isActive : !!plain.isActive,
-    itemName: plain.itemName.trim() ?? "",
-    itemAttributes: [""],
-    itemType: plain.itemType ?? "",
-    displayOrder:
-      typeof plain.displayOrder === "number"
-        ? plain.displayOrder
-        : Number(plain.displayOrder) || 0,
-  };
-}
+  function toModelMasterItem(plain: Record<string, any>) {
+    return {
+      //  plain.itemID ?? plain.itemId ?? plain.id,
+      id: crypto.randomUUID(),
+      masterID: plain.masterID ?? plain.masterId ?? "",
+      mastercode: plain.mastercode,
+      isActive: typeof plain.isActive === "boolean" ? plain.isActive : !!plain.isActive,
+      itemName: plain.itemName.trim() ?? "",
+      itemAttributes: [""],
+      itemType: plain.itemType ?? "",
+      displayOrder:
+        typeof plain.displayOrder === "number"
+          ? plain.displayOrder
+          : Number(plain.displayOrder) || 0,
+    };
+  }
 
 
   // Filter helper using toPlainObject to avoid type errors
@@ -3973,7 +3979,7 @@ function toModelMasterItem(plain: Record<string, any>) {
         for (let ii = 0; ii < matchedPlain.length; ii++) {
           const plainItem = matchedPlain[ii];
           const itemInput = toModelMasterItem(plainItem);
-          if ( itemInput.id) {
+          if (itemInput.id) {
             (itemInput as any).id = itemInput.id;
           }
           const displayId = itemInput.id ?? (itemInput as any).id ?? `#${ii + 1}`;
@@ -4003,8 +4009,77 @@ function toModelMasterItem(plain: Record<string, any>) {
     }
   }
 
-  function clear(){
-DataStore.clear()
+   const strHardMeasure = "Wear harness,Use guardrails";
+   const strRequiredPermits = "Work at Height Permit";
+   const strRequiredChecklist = "Pre-work Check";
+   const strRequiredPPE = "Helmet,Gloves";
+
+   const strUpdatedRequiredPPE = "HandGloves,Glasses,Helmet";
+
+
+  const hazard1 = new HazardandMeasuresControlDef({
+    hazard: "Working at height",
+    hazardMeasures: strHardMeasure.split(",")
+  });
+
+  const optionInfo1 = new PtpOptionsInfo({
+    requiredPermits: strRequiredPermits.split(","),
+    requiredChecklist: strRequiredChecklist.split(","),
+    requiredPPE: strRequiredPPE.split(","),
+    hazardandMeasures: [hazard1]
+  });
+
+
+  async function addPTPTemplateDefinition() {
+    const newTemplate = await DataStore.save(
+      new PtpTemplateDef({
+        id: crypto.randomUUID(), // If not auto-generated, else omit
+        templateName: "Standard Construction PTP",
+        ptpoptions: optionInfo1,
+        isTemplateUsed: "Draft",
+        isActive: true
+      })
+    );
+
+    console.log(newTemplate);
+  }
+
+  async function fetchPtpTemplateDef() {
+    try {
+      const allPTPTemplates = await DataStore.query(PtpTemplateDef);
+
+      console.log("allPTPTemplates");
+      console.log(allPTPTemplates);
+
+
+    // const ptpTemplate = allPTPTemplates[0];
+    // if (!ptpTemplate || !ptpTemplate.ptpoptions) {
+    //   throw new Error("No template or options found");
+    // }
+
+    // // Make a new ptpoptions object with updated requiredPPE
+    // const updatedPtpOptions = {
+    //   ...ptpTemplate.ptpoptions,
+    //   requiredPPE: strUpdatedRequiredPPE.split(","),
+    // };
+
+    // // Save an updated PtpTemplateDef with the modified ptpoptions
+    // await DataStore.save(
+    //   PtpTemplateDef.copyOf(ptpTemplate, updated => {
+    //     updated.ptpoptions = updatedPtpOptions;
+    //   })
+    // );
+      // ptpTemplateOptions[0].options?.requiredPPE = strUpdatedRequiredPPE.split(",");
+
+      // setUsers(usersWithAddresses as any);
+    } catch (err) {
+      console.log("error fetching users:", err);
+    }
+  }
+
+
+  function clear() {
+    DataStore.clear()
   }
   return (
     <div>
@@ -4015,6 +4090,11 @@ DataStore.clear()
       <button onClick={addItem} disabled={isWorking}>
         {isWorking ? "Working..." : "Add All Masters + Items"}
       </button>
+
+      <br />
+      <button onClick={addPTPTemplateDefinition}>addPTPTemplateDefinition</button>
+      <br />
+      <button onClick={fetchPtpTemplateDef}>fetchPtpTemplateDef</button>
 
       {progressMessage && <div style={{ marginTop: 8 }}>{progressMessage}</div>}
       {error && <div style={{ marginTop: 8, color: "red" }}>Error: {error}</div>}

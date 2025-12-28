@@ -271,8 +271,8 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "public",
-                                "provider": "apiKey",
+                                "allow": "private",
+                                "provider": "userPools",
                                 "operations": [
                                     "create",
                                     "update",
@@ -392,8 +392,100 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "allow": "public",
-                                "provider": "apiKey",
+                                "allow": "private",
+                                "provider": "userPools",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "PtpTemplateDef": {
+            "name": "PtpTemplateDef",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "templateName": {
+                    "name": "templateName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ptpoptions": {
+                    "name": "ptpoptions",
+                    "isArray": false,
+                    "type": {
+                        "nonModel": "PtpOptionsInfo"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "isTemplateUsed": {
+                    "name": "isTemplateUsed",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "isActive": {
+                    "name": "isActive",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "PtpTemplateDefs",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "id",
+                            "templateName"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "userPools",
                                 "operations": [
                                     "create",
                                     "update",
@@ -408,7 +500,67 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {},
+    "nonModels": {
+        "HazardandMeasuresControlDef": {
+            "name": "HazardandMeasuresControlDef",
+            "fields": {
+                "hazard": {
+                    "name": "hazard",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "hazardMeasures": {
+                    "name": "hazardMeasures",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
+        },
+        "PtpOptionsInfo": {
+            "name": "PtpOptionsInfo",
+            "fields": {
+                "requiredPermits": {
+                    "name": "requiredPermits",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "requiredChecklist": {
+                    "name": "requiredChecklist",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "requiredPPE": {
+                    "name": "requiredPPE",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "hazardandMeasures": {
+                    "name": "hazardandMeasures",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "HazardandMeasuresControlDef"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
+        }
+    },
     "codegenVersion": "3.4.4",
-    "version": "e35b0c21a7ae5404355b6373e1465c58"
+    "version": "ea3ef435d7192ddb66f79ac4bca8f676"
 };

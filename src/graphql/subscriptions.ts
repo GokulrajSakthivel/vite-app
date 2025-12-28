@@ -278,3 +278,81 @@ export const onDeleteMasterItem = /* GraphQL */ `subscription OnDeleteMasterItem
   APITypes.OnDeleteMasterItemSubscriptionVariables,
   APITypes.OnDeleteMasterItemSubscription
 >;
+export const onCreatePtpTemplateDef = /* GraphQL */ `subscription OnCreatePtpTemplateDef(
+  $filter: ModelSubscriptionPtpTemplateDefFilterInput
+) {
+  onCreatePtpTemplateDef(filter: $filter) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreatePtpTemplateDefSubscriptionVariables,
+  APITypes.OnCreatePtpTemplateDefSubscription
+>;
+export const onUpdatePtpTemplateDef = /* GraphQL */ `subscription OnUpdatePtpTemplateDef(
+  $filter: ModelSubscriptionPtpTemplateDefFilterInput
+) {
+  onUpdatePtpTemplateDef(filter: $filter) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdatePtpTemplateDefSubscriptionVariables,
+  APITypes.OnUpdatePtpTemplateDefSubscription
+>;
+export const onDeletePtpTemplateDef = /* GraphQL */ `subscription OnDeletePtpTemplateDef(
+  $filter: ModelSubscriptionPtpTemplateDefFilterInput
+) {
+  onDeletePtpTemplateDef(filter: $filter) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeletePtpTemplateDefSubscriptionVariables,
+  APITypes.OnDeletePtpTemplateDefSubscription
+>;

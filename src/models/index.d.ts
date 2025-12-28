@@ -4,7 +4,37 @@ import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/
 
 
 
+type EagerHazardandMeasuresControlDef = {
+  readonly hazard?: string | null;
+  readonly hazardMeasures?: (string | null)[] | null;
+}
 
+type LazyHazardandMeasuresControlDef = {
+  readonly hazard?: string | null;
+  readonly hazardMeasures?: (string | null)[] | null;
+}
+
+export declare type HazardandMeasuresControlDef = LazyLoading extends LazyLoadingDisabled ? EagerHazardandMeasuresControlDef : LazyHazardandMeasuresControlDef
+
+export declare const HazardandMeasuresControlDef: (new (init: ModelInit<HazardandMeasuresControlDef>) => HazardandMeasuresControlDef)
+
+type EagerPtpOptionsInfo = {
+  readonly requiredPermits?: (string | null)[] | null;
+  readonly requiredChecklist?: (string | null)[] | null;
+  readonly requiredPPE?: (string | null)[] | null;
+  readonly hazardandMeasures?: (HazardandMeasuresControlDef | null)[] | null;
+}
+
+type LazyPtpOptionsInfo = {
+  readonly requiredPermits?: (string | null)[] | null;
+  readonly requiredChecklist?: (string | null)[] | null;
+  readonly requiredPPE?: (string | null)[] | null;
+  readonly hazardandMeasures?: (HazardandMeasuresControlDef | null)[] | null;
+}
+
+export declare type PtpOptionsInfo = LazyLoading extends LazyLoadingDisabled ? EagerPtpOptionsInfo : LazyPtpOptionsInfo
+
+export declare const PtpOptionsInfo: (new (init: ModelInit<PtpOptionsInfo>) => PtpOptionsInfo)
 
 type EagerUsers = {
   readonly [__modelMeta__]: {
@@ -148,4 +178,38 @@ export declare type MasterItem = LazyLoading extends LazyLoadingDisabled ? Eager
 
 export declare const MasterItem: (new (init: ModelInit<MasterItem>) => MasterItem) & {
   copyOf(source: MasterItem, mutator: (draft: MutableModel<MasterItem>) => MutableModel<MasterItem> | void): MasterItem;
+}
+
+type EagerPtpTemplateDef = {
+  readonly [__modelMeta__]: {
+    identifier: CompositeIdentifier<PtpTemplateDef, ['id', 'templateName']>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly templateName: string;
+  readonly ptpoptions?: PtpOptionsInfo | null;
+  readonly isTemplateUsed?: string | null;
+  readonly isActive?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyPtpTemplateDef = {
+  readonly [__modelMeta__]: {
+    identifier: CompositeIdentifier<PtpTemplateDef, ['id', 'templateName']>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly templateName: string;
+  readonly ptpoptions?: PtpOptionsInfo | null;
+  readonly isTemplateUsed?: string | null;
+  readonly isActive?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type PtpTemplateDef = LazyLoading extends LazyLoadingDisabled ? EagerPtpTemplateDef : LazyPtpTemplateDef
+
+export declare const PtpTemplateDef: (new (init: ModelInit<PtpTemplateDef>) => PtpTemplateDef) & {
+  copyOf(source: PtpTemplateDef, mutator: (draft: MutableModel<PtpTemplateDef>) => MutableModel<PtpTemplateDef> | void): PtpTemplateDef;
 }
