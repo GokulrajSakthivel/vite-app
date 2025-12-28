@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Row, Col, Card, Form } from "react-bootstrap";
 import edit from "../../assets/icon/edit.png";
 import CommonModal from "../../assets/utilits/CommonModal";
+import { DataStore } from "aws-amplify";
+import { Master, MasterItem } from "../../models";
+import { useLoader } from "../../assets/utilits/LoaderContext";
 interface Control {
   label: string;
   isPresent?: boolean;
@@ -21,7 +24,17 @@ const HarzardCreation: React.FC = () => {
   const isAllSelected = editedHazard?.controls.every(
     control => control.isPresent
   ) ?? false;
-
+  // const { showLoader, hideLoader } = useLoader();
+const { showLoader: _showLoader, hideLoader: _hideLoader } = useLoader();
+  async function clearLocalData() {
+    try {
+      await DataStore.clear();
+      console.log("🧹 DataStore cleared");
+      // fetchUsers();
+    } catch (e) {
+      console.error("Error clearing DataStore", e);
+    }
+  }
   // open modal
   const openEditModal = (hazard: Hazard) => {
     setEditedHazard(JSON.parse(JSON.stringify(hazard))); 
@@ -63,21 +76,33 @@ const HarzardCreation: React.FC = () => {
     );
     setShowModal(false);
   };
+  async function fetchMaster() {
+    try {
+      _showLoader()
+      const allMasters = await DataStore.query(Master);
 
-useEffect(() => {
-  fetch("/src/component/DefaultTemplate/RetriveMasterData.Json")
-    .then(res => res.json())
-    .then(data => {
+      console.log(allMasters);
 
-      // 1️⃣ Get only HAZARD category
-      const hazardMasters = data.data.listMasters.items.filter(
+      const masterItemsFinal = await Promise.all(
+        allMasters.map(async (m) => {
+          const masterItems = await  m.items.toArray(); 
+          return { ...m, masterItems };
+        })
+      );
+
+      
+      console.log(typeof masterItemsFinal);
+
+
+            // 1️⃣ Get only HAZARD category
+      const hazardMasters = masterItemsFinal.filter(
         (item: any) => item.categoryName === "HAZARD"
       );
 
       if (!hazardMasters.length) return;
 
       // 2️⃣ Sort hazards by displayOrder
-      const hazardsSorted = hazardMasters[0].items.items.sort(
+      const hazardsSorted = hazardMasters[0].masterItems.sort(
         (a: any, b: any) => a.displayOrder - b.displayOrder
       );
 
@@ -86,7 +111,7 @@ useEffect(() => {
         (hazard: any, index: number) => {
 
           // match control master using mastercode
-          const matchedMaster = data.data.listMasters.items.find(
+          const matchedMaster = masterItemsFinal.find(
             (m: any) => m.masterName === hazard.mastercode
           );
 
@@ -95,7 +120,7 @@ useEffect(() => {
             title: hazard.itemName,
 
             controls: matchedMaster
-              ? matchedMaster.items.items
+              ? matchedMaster.masterItems
                   .sort(
                     (a: any, b: any) =>
                       a.displayOrder - b.displayOrder
@@ -108,17 +133,29 @@ useEffect(() => {
           };
         }
       );
-
-      setHazards(transformedHazards);
+    console.log(transformedHazards)    
+    
+    setHazards(transformedHazards);
      
-    })
-    .catch(error => {
-      console.error("Error loading hazards:", error);
-    });
+      // setUsers(usersWithAddresses as any);
+    } catch (err) {
+      console.log("error fetching users:", err);
+    }finally{
+      setTimeout(() => {
+        _hideLoader()
+      }, 100);
+     
+    }
+  }
+
+useEffect(() => {
+  fetchMaster();
+  
 }, []);
 
   return (
     <>
+    {/* <button onClick={clearLocalData}>Clear DataStore</button> */}
       <Card className="shadow-sm bg-light">
         <Card.Body>
           <Row className="align-items-center mb-3">
@@ -132,7 +169,6 @@ useEffect(() => {
           {hazards.map(hazard => (
             <Card key={hazard.id} className="hazard-card mb-3">
               <div className="left-accent" />
-
               <Card.Body>
                 <Row className="align-items-center mb-2">
                   <Col>

@@ -238,3 +238,13 @@ hr {
  
 
 }
+
+.headerWithUnderline{
+  text-decoration: underline;
+}
+.grayShoud{
+  color:var(--tagGray);
+}
+.ligtblocktext{
+  color:var(--textblack);
+}

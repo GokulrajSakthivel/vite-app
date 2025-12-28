@@ -8,11 +8,10 @@ import ForemanDashboard from "./component/Dashoard/FormanDashbaord";
 import TempleteCreation from "./component/DefaultTemplate/TempleteCreation";
 import TempleteCreateComponentMain from "./component/PTPflow/TempleteCreateComponentMain";
 import AppLayout from "./AppLayout";
-import AddMasterAndItemsWithDataStore from "./MasterDtata";
 
 export default function App() {
   return (
-    <Authenticator hideSignUp>
+    <Authenticator >
       {({ signOut, user }) => (
         <>
         <button onClick={signOut}>Sign out</button>
