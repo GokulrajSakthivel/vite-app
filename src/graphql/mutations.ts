@@ -308,3 +308,84 @@ export const deleteMasterItem = /* GraphQL */ `mutation DeleteMasterItem(
   APITypes.DeleteMasterItemMutationVariables,
   APITypes.DeleteMasterItemMutation
 >;
+export const createPtpTemplateDef = /* GraphQL */ `mutation CreatePtpTemplateDef(
+  $input: CreatePtpTemplateDefInput!
+  $condition: ModelPtpTemplateDefConditionInput
+) {
+  createPtpTemplateDef(input: $input, condition: $condition) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreatePtpTemplateDefMutationVariables,
+  APITypes.CreatePtpTemplateDefMutation
+>;
+export const updatePtpTemplateDef = /* GraphQL */ `mutation UpdatePtpTemplateDef(
+  $input: UpdatePtpTemplateDefInput!
+  $condition: ModelPtpTemplateDefConditionInput
+) {
+  updatePtpTemplateDef(input: $input, condition: $condition) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdatePtpTemplateDefMutationVariables,
+  APITypes.UpdatePtpTemplateDefMutation
+>;
+export const deletePtpTemplateDef = /* GraphQL */ `mutation DeletePtpTemplateDef(
+  $input: DeletePtpTemplateDefInput!
+  $condition: ModelPtpTemplateDefConditionInput
+) {
+  deletePtpTemplateDef(input: $input, condition: $condition) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeletePtpTemplateDefMutationVariables,
+  APITypes.DeletePtpTemplateDefMutation
+>;

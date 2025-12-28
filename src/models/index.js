@@ -4,11 +4,14 @@ import { schema } from './schema';
 
 
 
-const { Users, Address, Master, MasterItem } = initSchema(schema);
+const { Users, Address, Master, MasterItem, PtpTemplateDef, HazardandMeasuresControlDef, PtpOptionsInfo } = initSchema(schema);
 
 export {
   Users,
   Address,
   Master,
-  MasterItem
+  MasterItem,
+  PtpTemplateDef,
+  HazardandMeasuresControlDef,
+  PtpOptionsInfo
 };

@@ -301,6 +301,81 @@ export type DeleteMasterItemInput = {
   _version?: number | null,
 };
 
+export type CreatePtpTemplateDefInput = {
+  id?: string | null,
+  templateName: string,
+  ptpoptions?: PtpOptionsInfoInput | null,
+  isTemplateUsed?: string | null,
+  isActive?: boolean | null,
+  _version?: number | null,
+};
+
+export type PtpOptionsInfoInput = {
+  requiredPermits?: Array< string | null > | null,
+  requiredChecklist?: Array< string | null > | null,
+  requiredPPE?: Array< string | null > | null,
+  hazardandMeasures?: Array< HazardandMeasuresControlDefInput | null > | null,
+};
+
+export type HazardandMeasuresControlDefInput = {
+  hazard?: string | null,
+  hazardMeasures?: Array< string | null > | null,
+};
+
+export type ModelPtpTemplateDefConditionInput = {
+  isTemplateUsed?: ModelStringInput | null,
+  isActive?: ModelBooleanInput | null,
+  and?: Array< ModelPtpTemplateDefConditionInput | null > | null,
+  or?: Array< ModelPtpTemplateDefConditionInput | null > | null,
+  not?: ModelPtpTemplateDefConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type PtpTemplateDef = {
+  __typename: "PtpTemplateDef",
+  id: string,
+  templateName: string,
+  ptpoptions?: PtpOptionsInfo | null,
+  isTemplateUsed?: string | null,
+  isActive?: boolean | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type PtpOptionsInfo = {
+  __typename: "PtpOptionsInfo",
+  requiredPermits?: Array< string | null > | null,
+  requiredChecklist?: Array< string | null > | null,
+  requiredPPE?: Array< string | null > | null,
+  hazardandMeasures?:  Array<HazardandMeasuresControlDef | null > | null,
+};
+
+export type HazardandMeasuresControlDef = {
+  __typename: "HazardandMeasuresControlDef",
+  hazard?: string | null,
+  hazardMeasures?: Array< string | null > | null,
+};
+
+export type UpdatePtpTemplateDefInput = {
+  id: string,
+  templateName: string,
+  ptpoptions?: PtpOptionsInfoInput | null,
+  isTemplateUsed?: string | null,
+  isActive?: boolean | null,
+  _version?: number | null,
+};
+
+export type DeletePtpTemplateDefInput = {
+  id: string,
+  templateName: string,
+  _version?: number | null,
+};
+
 export type ModelUsersFilterInput = {
   id?: ModelIDInput | null,
   email?: ModelStringInput | null,
@@ -333,12 +408,6 @@ export type ModelAddressFilterInput = {
   _deleted?: ModelBooleanInput | null,
 };
 
-export enum ModelSortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
-
-
 export type ModelMasterFilterInput = {
   id?: ModelIDInput | null,
   masterTitle?: ModelStringInput | null,
@@ -354,6 +423,12 @@ export type ModelMasterFilterInput = {
   not?: ModelMasterFilterInput | null,
   _deleted?: ModelBooleanInput | null,
 };
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
 
 export type ModelMasterConnection = {
   __typename: "ModelMasterConnection",
@@ -387,6 +462,36 @@ export type ModelMasterItemFilterInput = {
   or?: Array< ModelMasterItemFilterInput | null > | null,
   not?: ModelMasterItemFilterInput | null,
   _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
+export type ModelPtpTemplateDefFilterInput = {
+  id?: ModelIDInput | null,
+  templateName?: ModelStringInput | null,
+  isTemplateUsed?: ModelStringInput | null,
+  isActive?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelPtpTemplateDefFilterInput | null > | null,
+  or?: Array< ModelPtpTemplateDefFilterInput | null > | null,
+  not?: ModelPtpTemplateDefFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelPtpTemplateDefConnection = {
+  __typename: "ModelPtpTemplateDefConnection",
+  items:  Array<PtpTemplateDef | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type ModelSubscriptionUsersFilterInput = {
@@ -487,6 +592,18 @@ export type ModelSubscriptionMasterItemFilterInput = {
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionMasterItemFilterInput | null > | null,
   or?: Array< ModelSubscriptionMasterItemFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelSubscriptionPtpTemplateDefFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  templateName?: ModelSubscriptionStringInput | null,
+  isTemplateUsed?: ModelSubscriptionStringInput | null,
+  isActive?: ModelSubscriptionBooleanInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPtpTemplateDefFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPtpTemplateDefFilterInput | null > | null,
   _deleted?: ModelBooleanInput | null,
 };
 
@@ -778,6 +895,84 @@ export type DeleteMasterItemMutation = {
   } | null,
 };
 
+export type CreatePtpTemplateDefMutationVariables = {
+  input: CreatePtpTemplateDefInput,
+  condition?: ModelPtpTemplateDefConditionInput | null,
+};
+
+export type CreatePtpTemplateDefMutation = {
+  createPtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdatePtpTemplateDefMutationVariables = {
+  input: UpdatePtpTemplateDefInput,
+  condition?: ModelPtpTemplateDefConditionInput | null,
+};
+
+export type UpdatePtpTemplateDefMutation = {
+  updatePtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeletePtpTemplateDefMutationVariables = {
+  input: DeletePtpTemplateDefInput,
+  condition?: ModelPtpTemplateDefConditionInput | null,
+};
+
+export type DeletePtpTemplateDefMutation = {
+  deletePtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
 export type GetUsersQueryVariables = {
   id: string,
 };
@@ -906,34 +1101,6 @@ export type SyncAddressesQueryVariables = {
 
 export type SyncAddressesQuery = {
   syncAddresses?:  {
-    __typename: "ModelAddressConnection",
-    items:  Array< {
-      __typename: "Address",
-      id: string,
-      userID: string,
-      country: string,
-      phone: string,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type AddressesByUserIDQueryVariables = {
-  userID: string,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelAddressFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type AddressesByUserIDQuery = {
-  addressesByUserID?:  {
     __typename: "ModelAddressConnection",
     items:  Array< {
       __typename: "Address",
@@ -1117,6 +1284,116 @@ export type SyncMasterItemsQuery = {
       mastercode?: string | null,
       displayOrder?: number | null,
       isActive?: boolean | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type GetPtpTemplateDefQueryVariables = {
+  id: string,
+  templateName: string,
+};
+
+export type GetPtpTemplateDefQuery = {
+  getPtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListPtpTemplateDefsQueryVariables = {
+  id?: string | null,
+  templateName?: ModelStringKeyConditionInput | null,
+  filter?: ModelPtpTemplateDefFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListPtpTemplateDefsQuery = {
+  listPtpTemplateDefs?:  {
+    __typename: "ModelPtpTemplateDefConnection",
+    items:  Array< {
+      __typename: "PtpTemplateDef",
+      id: string,
+      templateName: string,
+      isTemplateUsed?: string | null,
+      isActive?: boolean | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncPtpTemplateDefsQueryVariables = {
+  filter?: ModelPtpTemplateDefFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncPtpTemplateDefsQuery = {
+  syncPtpTemplateDefs?:  {
+    __typename: "ModelPtpTemplateDefConnection",
+    items:  Array< {
+      __typename: "PtpTemplateDef",
+      id: string,
+      templateName: string,
+      isTemplateUsed?: string | null,
+      isActive?: boolean | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type AddressesByUserIDQueryVariables = {
+  userID: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelAddressFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type AddressesByUserIDQuery = {
+  addressesByUserID?:  {
+    __typename: "ModelAddressConnection",
+    items:  Array< {
+      __typename: "Address",
+      id: string,
+      userID: string,
+      country: string,
+      phone: string,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1395,6 +1672,81 @@ export type OnDeleteMasterItemSubscription = {
     itemAttributes?: Array< string | null > | null,
     mastercode?: string | null,
     displayOrder?: number | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreatePtpTemplateDefSubscriptionVariables = {
+  filter?: ModelSubscriptionPtpTemplateDefFilterInput | null,
+};
+
+export type OnCreatePtpTemplateDefSubscription = {
+  onCreatePtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdatePtpTemplateDefSubscriptionVariables = {
+  filter?: ModelSubscriptionPtpTemplateDefFilterInput | null,
+};
+
+export type OnUpdatePtpTemplateDefSubscription = {
+  onUpdatePtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
+    isActive?: boolean | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeletePtpTemplateDefSubscriptionVariables = {
+  filter?: ModelSubscriptionPtpTemplateDefFilterInput | null,
+};
+
+export type OnDeletePtpTemplateDefSubscription = {
+  onDeletePtpTemplateDef?:  {
+    __typename: "PtpTemplateDef",
+    id: string,
+    templateName: string,
+    ptpoptions?:  {
+      __typename: "PtpOptionsInfo",
+      requiredPermits?: Array< string | null > | null,
+      requiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null,
+    isTemplateUsed?: string | null,
     isActive?: boolean | null,
     createdAt: string,
     updatedAt: string,

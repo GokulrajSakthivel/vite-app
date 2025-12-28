@@ -8,6 +8,7 @@ import ForemanDashboard from "./component/Dashoard/FormanDashbaord";
 import TempleteCreation from "./component/DefaultTemplate/TempleteCreation";
 import TempleteCreateComponentMain from "./component/PTPflow/TempleteCreateComponentMain";
 import AppLayout from "./AppLayout";
+import AddMasterAndItemsWithDataStore from "./MasterDtata";
 
 export default function App() {
   return (
@@ -27,6 +28,8 @@ export default function App() {
               <Route path="/CreateTemplate" element={<TempleteCreation />} />
               <Route path="/templetecreation" element={<TempleteCreateComponentMain />} />
               <Route path="/userform" element={<UsersApp />} />
+              <Route path="/addMaster" element={<AddMasterAndItemsWithDataStore />} />
+              
             </Routes>
             {/* </Layout> */}
           </div>

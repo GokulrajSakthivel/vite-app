@@ -52,3 +52,30 @@ type MasterItem
 }
 
 
+
+type HazardandMeasuresControlDef
+{    
+    hazard:String
+    hazardMeasures: [String]
+}
+ 
+type PtpOptionsInfo
+{
+    requiredPermits : [String]
+    requiredChecklist : [String]
+    requiredPPE : [String]
+    hazardandMeasures: [HazardandMeasuresControlDef]
+}
+ 
+
+type PtpTemplateDef
+@model
+@auth(rules: [{allow: private, provider: userPools}])
+{
+    id: ID! @primaryKey(sortKeyFields: ["templateName"])
+    templateName: String!
+    ptpoptions: PtpOptionsInfo
+    isTemplateUsed: String
+    isActive: Boolean
+}
+

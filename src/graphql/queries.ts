@@ -157,41 +157,6 @@ export const syncAddresses = /* GraphQL */ `query SyncAddresses(
   APITypes.SyncAddressesQueryVariables,
   APITypes.SyncAddressesQuery
 >;
-export const addressesByUserID = /* GraphQL */ `query AddressesByUserID(
-  $userID: ID!
-  $sortDirection: ModelSortDirection
-  $filter: ModelAddressFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  addressesByUserID(
-    userID: $userID
-    sortDirection: $sortDirection
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      userID
-      country
-      phone
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      __typename
-    }
-    nextToken
-    startedAt
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.AddressesByUserIDQueryVariables,
-  APITypes.AddressesByUserIDQuery
->;
 export const getMaster = /* GraphQL */ `query GetMaster($id: ID!) {
   getMaster(id: $id) {
     id
@@ -388,4 +353,133 @@ export const syncMasterItems = /* GraphQL */ `query SyncMasterItems(
 ` as GeneratedQuery<
   APITypes.SyncMasterItemsQueryVariables,
   APITypes.SyncMasterItemsQuery
+>;
+export const getPtpTemplateDef = /* GraphQL */ `query GetPtpTemplateDef($id: ID!, $templateName: String!) {
+  getPtpTemplateDef(id: $id, templateName: $templateName) {
+    id
+    templateName
+    ptpoptions {
+      requiredPermits
+      requiredChecklist
+      requiredPPE
+      __typename
+    }
+    isTemplateUsed
+    isActive
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetPtpTemplateDefQueryVariables,
+  APITypes.GetPtpTemplateDefQuery
+>;
+export const listPtpTemplateDefs = /* GraphQL */ `query ListPtpTemplateDefs(
+  $id: ID
+  $templateName: ModelStringKeyConditionInput
+  $filter: ModelPtpTemplateDefFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listPtpTemplateDefs(
+    id: $id
+    templateName: $templateName
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      templateName
+      isTemplateUsed
+      isActive
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListPtpTemplateDefsQueryVariables,
+  APITypes.ListPtpTemplateDefsQuery
+>;
+export const syncPtpTemplateDefs = /* GraphQL */ `query SyncPtpTemplateDefs(
+  $filter: ModelPtpTemplateDefFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncPtpTemplateDefs(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      templateName
+      isTemplateUsed
+      isActive
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.SyncPtpTemplateDefsQueryVariables,
+  APITypes.SyncPtpTemplateDefsQuery
+>;
+export const addressesByUserID = /* GraphQL */ `query AddressesByUserID(
+  $userID: ID!
+  $sortDirection: ModelSortDirection
+  $filter: ModelAddressFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  addressesByUserID(
+    userID: $userID
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      userID
+      country
+      phone
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.AddressesByUserIDQueryVariables,
+  APITypes.AddressesByUserIDQuery
 >;
