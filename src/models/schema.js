@@ -218,6 +218,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modifiedBy": {
+                    "name": "modifiedBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "items": {
                     "name": "items",
                     "isArray": true,
@@ -263,6 +277,26 @@ export const schema = {
                     "properties": {
                         "fields": [
                             "id"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byCategoryName",
+                        "queryField": "mastersByCategoryName",
+                        "fields": [
+                            "categoryName"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byMasterName",
+                        "queryField": "mastersByMasterName",
+                        "fields": [
+                            "masterName"
                         ]
                     }
                 },
@@ -345,6 +379,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modifiedBy": {
+                    "name": "modifiedBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -423,8 +471,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "ptpoptions": {
-                    "name": "ptpoptions",
+                "ptpOptions": {
+                    "name": "ptpOptions",
                     "isArray": false,
                     "type": {
                         "nonModel": "PtpOptionsInfo"
@@ -443,6 +491,20 @@ export const schema = {
                     "name": "isActive",
                     "isArray": false,
                     "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modifiedBy": {
+                    "name": "modifiedBy",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -476,6 +538,359 @@ export const schema = {
                         "fields": [
                             "id",
                             "templateName"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "userPools",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "PTPTemplate": {
+            "name": "PTPTemplate",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "templateDefId": {
+                    "name": "templateDefId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "ptpOptonsSelection": {
+                    "name": "ptpOptonsSelection",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "PTPSelections"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "foremanSignInandOut": {
+                    "name": "foremanSignInandOut",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "ForemanSignInfo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "emergencyContacts": {
+                    "name": "emergencyContacts",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "EmergencyContactInfo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "shiftReviewes": {
+                    "name": "shiftReviewes",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "ShiftReviewInfo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modifiedBy": {
+                    "name": "modifiedBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "tasks": {
+                    "name": "tasks",
+                    "isArray": true,
+                    "type": {
+                        "model": "PTPTasksValue"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "templateId"
+                        ]
+                    }
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "PTPTemplates",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "templateDefId"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "userPools",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "PTPTasksValue": {
+            "name": "PTPTasksValue",
+            "fields": {
+                "templateId": {
+                    "name": "templateId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "entityType": {
+                    "name": "entityType",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "ptpTasks": {
+                    "name": "ptpTasks",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "TaskDef"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "crewMemberLogin": {
+                    "name": "crewMemberLogin",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "CrewLoginInfo"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "createdBy": {
+                    "name": "createdBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "modifiedBy": {
+                    "name": "modifiedBy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "PTPTasksValues",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "templateId"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "gsi-PTPTemplate.tasks",
+                        "fields": [
+                            "templateId"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "private",
+                                "provider": "userPools",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "ProjectSiteHierarchy": {
+            "name": "ProjectSiteHierarchy",
+            "fields": {
+                "userId": {
+                    "name": "userId",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "projectSortKey": {
+                    "name": "projectSortKey",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "entityType": {
+                    "name": "entityType",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "region": {
+                    "name": "region",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "businessUnit": {
+                    "name": "businessUnit",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "projectSite": {
+                    "name": "projectSite",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "ProjectSiteHierarchies",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "fields": [
+                            "userId",
+                            "projectSortKey"
                         ]
                     }
                 },
@@ -559,8 +974,295 @@ export const schema = {
                     "isArrayNullable": true
                 }
             }
+        },
+        "HazardSelections": {
+            "name": "HazardSelections",
+            "fields": {
+                "hazard": {
+                    "name": "hazard",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "hazardMeasure": {
+                    "name": "hazardMeasure",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "rcd": {
+                    "name": "rcd",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "PTPSelections": {
+            "name": "PTPSelections",
+            "fields": {
+                "requiredPermits": {
+                    "name": "requiredPermits",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "rquiredChecklist": {
+                    "name": "rquiredChecklist",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "requiredPPE": {
+                    "name": "requiredPPE",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "hazardAndHazardMeasure": {
+                    "name": "hazardAndHazardMeasure",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "HazardSelections"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
+        },
+        "ForemanSignInfo": {
+            "name": "ForemanSignInfo",
+            "fields": {
+                "foremanName": {
+                    "name": "foremanName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signIn": {
+                    "name": "signIn",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signInDateTime": {
+                    "name": "signInDateTime",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "signOut": {
+                    "name": "signOut",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signOutDateTime": {
+                    "name": "signOutDateTime",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "companyName": {
+                    "name": "companyName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "EmergencyContactInfo": {
+            "name": "EmergencyContactInfo",
+            "fields": {
+                "isEmergencyActionPlanDiscussed": {
+                    "name": "isEmergencyActionPlanDiscussed",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "safety": {
+                    "name": "safety",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "superintendent": {
+                    "name": "superintendent",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "emergencyMusterArea": {
+                    "name": "emergencyMusterArea",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "other": {
+                    "name": "other",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "ShiftReviewInfo": {
+            "name": "ShiftReviewInfo",
+            "fields": {
+                "isAllToolsusedAndStroedProperly": {
+                    "name": "isAllToolsusedAndStroedProperly",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "haveAllPermitsClosed": {
+                    "name": "haveAllPermitsClosed",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "didAnyIncidentesorInjuries": {
+                    "name": "didAnyIncidentesorInjuries",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wasTheIncidentReported": {
+                    "name": "wasTheIncidentReported",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "descriptionOfIncident": {
+                    "name": "descriptionOfIncident",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "TaskDef": {
+            "name": "TaskDef",
+            "fields": {
+                "task": {
+                    "name": "task",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "toolsAndEquipment": {
+                    "name": "toolsAndEquipment",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "taskHazarad": {
+                    "name": "taskHazarad",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "hazardControl": {
+                    "name": "hazardControl",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "competentPerson": {
+                    "name": "competentPerson",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "CrewLoginInfo": {
+            "name": "CrewLoginInfo",
+            "fields": {
+                "crewName": {
+                    "name": "crewName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signIn": {
+                    "name": "signIn",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signInDateTime": {
+                    "name": "signInDateTime",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "signInComments": {
+                    "name": "signInComments",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signOut": {
+                    "name": "signOut",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "signOutDateTime": {
+                    "name": "signOutDateTime",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "signOutComments": {
+                    "name": "signOutComments",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "ea3ef435d7192ddb66f79ac4bca8f676"
+    "version": "4303ac9869ef8e09e8da32b11bf4a5fd"
 };

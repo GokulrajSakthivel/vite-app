@@ -2161,7 +2161,7 @@ export default function AddMasterAndItemsWithDataStore(_: Props) {
       "S": "List"
     },
     "mastercode": {
-      "S": ""
+      "S": "HCM-COLE"
     },
     "displayOrder": {
       "N": "2"
@@ -3826,6 +3826,26 @@ export default function AddMasterAndItemsWithDataStore(_: Props) {
     "itemType": { "S": "List" },
     "mastercode": { "S": "" },
     "displayOrder": { "N": "2" }
+  },
+  {
+    "itemID": { "S": "31a7f8d3-c9e4-4a51-8b62-0e5d1c2b3149" },
+    "masterID": { "S": "0d4c2b9f-6e7a-4d18-83a5-1e0f9c2b0d13" },
+    "isActive": { "BOOL": true },
+    "itemName": { "S": "Required clearance distance in ft." },
+    "itemAttributes": { "S": "" },
+    "itemType": { "S": "Text" },
+    "mastercode": { "S": "" },
+    "displayOrder": { "N": "6" }
+  },
+  {
+    "itemID": { "S": "31a7f8d3-c9e4-4a51-8b62-0e5d1c2b3149" },
+    "masterID": { "S": "10a7c2d9-5e8f-4b30-91a6-e2f3d0c71016" },
+    "isActive": { "BOOL": true },
+    "itemName": { "S": "Required clearance distance in ft." },
+    "itemAttributes": { "S": "" },
+    "itemType": { "S": "Text" },
+    "mastercode": { "S": "" },
+    "displayOrder": { "N": "6" }
   }
   ]
 
@@ -3836,7 +3856,11 @@ export default function AddMasterAndItemsWithDataStore(_: Props) {
 
   async function fetchMaster() {
     try {
-      const allUsers = await DataStore.query(Master);
+      const allUsers = await DataStore.query(Master,
+        m => m.masterName.eq("HAZARD")
+        // m => m.masterName.eq("HCM-OU")
+        // m => m.masterName.eq("CHECKLIST")
+      );
 
       console.log(allUsers);
 
@@ -4035,7 +4059,7 @@ export default function AddMasterAndItemsWithDataStore(_: Props) {
       new PtpTemplateDef({
         id: crypto.randomUUID(), // If not auto-generated, else omit
         templateName: "Standard Construction PTP",
-        ptpoptions: optionInfo1,
+        ptpOptions: optionInfo1,
         isTemplateUsed: "Draft",
         isActive: true
       })

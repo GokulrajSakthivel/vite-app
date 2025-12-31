@@ -28,11 +28,13 @@ type Master
 @auth(rules: [{ allow: private, provider: userPools}]) {
   id: ID! @primaryKey
   masterTitle: String
-  categoryName: String
-  masterName: String
+  categoryName: String @index(name: "byCategoryName", queryField: "mastersByCategoryName")
+  masterName: String @index(name: "byMasterName", queryField: "mastersByMasterName")
   masterDescription: String
   displayOrder: Int
   isActive: Boolean
+  createdBy: String
+  modifiedBy: String
   items: [MasterItem] @hasMany(fields: ["id"])
 }
  
@@ -49,6 +51,8 @@ type MasterItem
   mastercode: String
   displayOrder: Int  
   isActive: Boolean  
+  createdBy: String
+  modifiedBy: String
 }
 
 
@@ -74,8 +78,112 @@ type PtpTemplateDef
 {
     id: ID! @primaryKey(sortKeyFields: ["templateName"])
     templateName: String!
-    ptpoptions: PtpOptionsInfo
+    ptpOptions: PtpOptionsInfo
     isTemplateUsed: String
     isActive: Boolean
+    createdBy: String
+    modifiedBy: String
 }
 
+
+
+
+type HazardSelections
+{
+  hazard: String
+  hazardMeasure: [String]
+  rcd: Int
+}
+ 
+type PTPSelections
+{
+  requiredPermits: [String]
+  rquiredChecklist: [String]
+  requiredPPE: [String]
+  hazardAndHazardMeasure: [HazardSelections]
+}
+ 
+type ForemanSignInfo
+{
+  foremanName: String
+  signIn: String
+  signInDateTime: AWSDateTime!
+  signOut: String
+  signOutDateTime:AWSDateTime!
+  companyName: String
+}
+ 
+type EmergencyContactInfo
+{
+  isEmergencyActionPlanDiscussed: Boolean
+  safety: String
+  superintendent: String
+  emergencyMusterArea: String  
+  other: String
+}
+ 
+type ShiftReviewInfo
+{
+  isAllToolsusedAndStroedProperly: Boolean
+  haveAllPermitsClosed: Boolean
+  didAnyIncidentesorInjuries: Boolean
+  wasTheIncidentReported: Boolean
+  descriptionOfIncident: String
+}
+ 
+ 
+type PTPTemplate @model
+@auth(rules: [{ allow: private, provider: userPools }]) {
+  templateDefId: ID! @primaryKey
+  id: ID!
+  ptpOptonsSelection: [PTPSelections]
+  foremanSignInandOut : [ForemanSignInfo]
+  emergencyContacts: [EmergencyContactInfo]
+  shiftReviewes: [ShiftReviewInfo]
+  status: String
+  createdBy: String
+  modifiedBy: String
+  tasks: [PTPTasksValue] @hasMany(fields:["id"])
+}
+ 
+type TaskDef
+{
+  task: String
+  toolsAndEquipment: String
+  taskHazarad: String
+  hazardControl: String
+  competentPerson: String
+}
+ 
+type CrewLoginInfo
+{
+   crewName : String
+   signIn: String
+   signInDateTime : AWSDateTime!
+   signInComments: String
+   signOut: String
+   signOutDateTime : AWSDateTime!
+   signOutComments: String
+}
+ 
+type PTPTasksValue
+@model
+@auth(rules: [{ allow: private, provider: userPools }]) {
+  templateId: ID! @primaryKey
+  entityType: String
+  ptpTasks: [TaskDef]
+  crewMemberLogin: [CrewLoginInfo]
+  createdBy: String
+  modifiedBy: String
+}
+
+type ProjectSiteHierarchy
+@model
+@auth(rules: [{ allow: private, provider: userPools }]) {
+  userId: ID!  @primaryKey(sortKeyFields: ["projectSortKey"])
+  projectSortKey: ID!
+  entityType: String
+  region: String
+  businessUnit: String
+  projectSite: String
+}

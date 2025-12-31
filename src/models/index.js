@@ -4,7 +4,7 @@ import { schema } from './schema';
 
 
 
-const { Users, Address, Master, MasterItem, PtpTemplateDef, HazardandMeasuresControlDef, PtpOptionsInfo } = initSchema(schema);
+const { Users, Address, Master, MasterItem, PtpTemplateDef, PTPTemplate, PTPTasksValue, ProjectSiteHierarchy, HazardandMeasuresControlDef, PtpOptionsInfo, HazardSelections, PTPSelections, ForemanSignInfo, EmergencyContactInfo, ShiftReviewInfo, TaskDef, CrewLoginInfo } = initSchema(schema);
 
 export {
   Users,
@@ -12,6 +12,16 @@ export {
   Master,
   MasterItem,
   PtpTemplateDef,
+  PTPTemplate,
+  PTPTasksValue,
+  ProjectSiteHierarchy,
   HazardandMeasuresControlDef,
-  PtpOptionsInfo
+  PtpOptionsInfo,
+  HazardSelections,
+  PTPSelections,
+  ForemanSignInfo,
+  EmergencyContactInfo,
+  ShiftReviewInfo,
+  TaskDef,
+  CrewLoginInfo
 };

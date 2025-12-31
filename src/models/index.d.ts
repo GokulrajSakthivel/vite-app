@@ -1,4 +1,4 @@
-import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier, OptionallyManagedIdentifier, CompositeIdentifier } from "@aws-amplify/datastore";
+import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier, OptionallyManagedIdentifier, CompositeIdentifier, CustomIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/datastore";
 
@@ -35,6 +35,146 @@ type LazyPtpOptionsInfo = {
 export declare type PtpOptionsInfo = LazyLoading extends LazyLoadingDisabled ? EagerPtpOptionsInfo : LazyPtpOptionsInfo
 
 export declare const PtpOptionsInfo: (new (init: ModelInit<PtpOptionsInfo>) => PtpOptionsInfo)
+
+type EagerHazardSelections = {
+  readonly hazard?: string | null;
+  readonly hazardMeasure?: (string | null)[] | null;
+  readonly rcd?: number | null;
+}
+
+type LazyHazardSelections = {
+  readonly hazard?: string | null;
+  readonly hazardMeasure?: (string | null)[] | null;
+  readonly rcd?: number | null;
+}
+
+export declare type HazardSelections = LazyLoading extends LazyLoadingDisabled ? EagerHazardSelections : LazyHazardSelections
+
+export declare const HazardSelections: (new (init: ModelInit<HazardSelections>) => HazardSelections)
+
+type EagerPTPSelections = {
+  readonly requiredPermits?: (string | null)[] | null;
+  readonly rquiredChecklist?: (string | null)[] | null;
+  readonly requiredPPE?: (string | null)[] | null;
+  readonly hazardAndHazardMeasure?: (HazardSelections | null)[] | null;
+}
+
+type LazyPTPSelections = {
+  readonly requiredPermits?: (string | null)[] | null;
+  readonly rquiredChecklist?: (string | null)[] | null;
+  readonly requiredPPE?: (string | null)[] | null;
+  readonly hazardAndHazardMeasure?: (HazardSelections | null)[] | null;
+}
+
+export declare type PTPSelections = LazyLoading extends LazyLoadingDisabled ? EagerPTPSelections : LazyPTPSelections
+
+export declare const PTPSelections: (new (init: ModelInit<PTPSelections>) => PTPSelections)
+
+type EagerForemanSignInfo = {
+  readonly foremanName?: string | null;
+  readonly signIn?: string | null;
+  readonly signInDateTime: string;
+  readonly signOut?: string | null;
+  readonly signOutDateTime: string;
+  readonly companyName?: string | null;
+}
+
+type LazyForemanSignInfo = {
+  readonly foremanName?: string | null;
+  readonly signIn?: string | null;
+  readonly signInDateTime: string;
+  readonly signOut?: string | null;
+  readonly signOutDateTime: string;
+  readonly companyName?: string | null;
+}
+
+export declare type ForemanSignInfo = LazyLoading extends LazyLoadingDisabled ? EagerForemanSignInfo : LazyForemanSignInfo
+
+export declare const ForemanSignInfo: (new (init: ModelInit<ForemanSignInfo>) => ForemanSignInfo)
+
+type EagerEmergencyContactInfo = {
+  readonly isEmergencyActionPlanDiscussed?: boolean | null;
+  readonly safety?: string | null;
+  readonly superintendent?: string | null;
+  readonly emergencyMusterArea?: string | null;
+  readonly other?: string | null;
+}
+
+type LazyEmergencyContactInfo = {
+  readonly isEmergencyActionPlanDiscussed?: boolean | null;
+  readonly safety?: string | null;
+  readonly superintendent?: string | null;
+  readonly emergencyMusterArea?: string | null;
+  readonly other?: string | null;
+}
+
+export declare type EmergencyContactInfo = LazyLoading extends LazyLoadingDisabled ? EagerEmergencyContactInfo : LazyEmergencyContactInfo
+
+export declare const EmergencyContactInfo: (new (init: ModelInit<EmergencyContactInfo>) => EmergencyContactInfo)
+
+type EagerShiftReviewInfo = {
+  readonly isAllToolsusedAndStroedProperly?: boolean | null;
+  readonly haveAllPermitsClosed?: boolean | null;
+  readonly didAnyIncidentesorInjuries?: boolean | null;
+  readonly wasTheIncidentReported?: boolean | null;
+  readonly descriptionOfIncident?: string | null;
+}
+
+type LazyShiftReviewInfo = {
+  readonly isAllToolsusedAndStroedProperly?: boolean | null;
+  readonly haveAllPermitsClosed?: boolean | null;
+  readonly didAnyIncidentesorInjuries?: boolean | null;
+  readonly wasTheIncidentReported?: boolean | null;
+  readonly descriptionOfIncident?: string | null;
+}
+
+export declare type ShiftReviewInfo = LazyLoading extends LazyLoadingDisabled ? EagerShiftReviewInfo : LazyShiftReviewInfo
+
+export declare const ShiftReviewInfo: (new (init: ModelInit<ShiftReviewInfo>) => ShiftReviewInfo)
+
+type EagerTaskDef = {
+  readonly task?: string | null;
+  readonly toolsAndEquipment?: string | null;
+  readonly taskHazarad?: string | null;
+  readonly hazardControl?: string | null;
+  readonly competentPerson?: string | null;
+}
+
+type LazyTaskDef = {
+  readonly task?: string | null;
+  readonly toolsAndEquipment?: string | null;
+  readonly taskHazarad?: string | null;
+  readonly hazardControl?: string | null;
+  readonly competentPerson?: string | null;
+}
+
+export declare type TaskDef = LazyLoading extends LazyLoadingDisabled ? EagerTaskDef : LazyTaskDef
+
+export declare const TaskDef: (new (init: ModelInit<TaskDef>) => TaskDef)
+
+type EagerCrewLoginInfo = {
+  readonly crewName?: string | null;
+  readonly signIn?: string | null;
+  readonly signInDateTime: string;
+  readonly signInComments?: string | null;
+  readonly signOut?: string | null;
+  readonly signOutDateTime: string;
+  readonly signOutComments?: string | null;
+}
+
+type LazyCrewLoginInfo = {
+  readonly crewName?: string | null;
+  readonly signIn?: string | null;
+  readonly signInDateTime: string;
+  readonly signInComments?: string | null;
+  readonly signOut?: string | null;
+  readonly signOutDateTime: string;
+  readonly signOutComments?: string | null;
+}
+
+export declare type CrewLoginInfo = LazyLoading extends LazyLoadingDisabled ? EagerCrewLoginInfo : LazyCrewLoginInfo
+
+export declare const CrewLoginInfo: (new (init: ModelInit<CrewLoginInfo>) => CrewLoginInfo)
 
 type EagerUsers = {
   readonly [__modelMeta__]: {
@@ -112,6 +252,8 @@ type EagerMaster = {
   readonly masterDescription?: string | null;
   readonly displayOrder?: number | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly items?: (MasterItem | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -129,6 +271,8 @@ type LazyMaster = {
   readonly masterDescription?: string | null;
   readonly displayOrder?: number | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly items: AsyncCollection<MasterItem>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -153,6 +297,8 @@ type EagerMasterItem = {
   readonly mastercode?: string | null;
   readonly displayOrder?: number | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -170,6 +316,8 @@ type LazyMasterItem = {
   readonly mastercode?: string | null;
   readonly displayOrder?: number | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -187,9 +335,11 @@ type EagerPtpTemplateDef = {
   };
   readonly id: string;
   readonly templateName: string;
-  readonly ptpoptions?: PtpOptionsInfo | null;
+  readonly ptpOptions?: PtpOptionsInfo | null;
   readonly isTemplateUsed?: string | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -201,9 +351,11 @@ type LazyPtpTemplateDef = {
   };
   readonly id: string;
   readonly templateName: string;
-  readonly ptpoptions?: PtpOptionsInfo | null;
+  readonly ptpOptions?: PtpOptionsInfo | null;
   readonly isTemplateUsed?: string | null;
   readonly isActive?: boolean | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -212,4 +364,120 @@ export declare type PtpTemplateDef = LazyLoading extends LazyLoadingDisabled ? E
 
 export declare const PtpTemplateDef: (new (init: ModelInit<PtpTemplateDef>) => PtpTemplateDef) & {
   copyOf(source: PtpTemplateDef, mutator: (draft: MutableModel<PtpTemplateDef>) => MutableModel<PtpTemplateDef> | void): PtpTemplateDef;
+}
+
+type EagerPTPTemplate = {
+  readonly [__modelMeta__]: {
+    identifier: CustomIdentifier<PTPTemplate, 'templateDefId'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly templateDefId: string;
+  readonly ptpOptonsSelection?: (PTPSelections | null)[] | null;
+  readonly foremanSignInandOut?: (ForemanSignInfo | null)[] | null;
+  readonly emergencyContacts?: (EmergencyContactInfo | null)[] | null;
+  readonly shiftReviewes?: (ShiftReviewInfo | null)[] | null;
+  readonly status?: string | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
+  readonly tasks?: (PTPTasksValue | null)[] | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyPTPTemplate = {
+  readonly [__modelMeta__]: {
+    identifier: CustomIdentifier<PTPTemplate, 'templateDefId'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly templateDefId: string;
+  readonly ptpOptonsSelection?: (PTPSelections | null)[] | null;
+  readonly foremanSignInandOut?: (ForemanSignInfo | null)[] | null;
+  readonly emergencyContacts?: (EmergencyContactInfo | null)[] | null;
+  readonly shiftReviewes?: (ShiftReviewInfo | null)[] | null;
+  readonly status?: string | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
+  readonly tasks: AsyncCollection<PTPTasksValue>;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type PTPTemplate = LazyLoading extends LazyLoadingDisabled ? EagerPTPTemplate : LazyPTPTemplate
+
+export declare const PTPTemplate: (new (init: ModelInit<PTPTemplate>) => PTPTemplate) & {
+  copyOf(source: PTPTemplate, mutator: (draft: MutableModel<PTPTemplate>) => MutableModel<PTPTemplate> | void): PTPTemplate;
+}
+
+type EagerPTPTasksValue = {
+  readonly [__modelMeta__]: {
+    identifier: CustomIdentifier<PTPTasksValue, 'templateId'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly templateId: string;
+  readonly entityType?: string | null;
+  readonly ptpTasks?: (TaskDef | null)[] | null;
+  readonly crewMemberLogin?: (CrewLoginInfo | null)[] | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyPTPTasksValue = {
+  readonly [__modelMeta__]: {
+    identifier: CustomIdentifier<PTPTasksValue, 'templateId'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly templateId: string;
+  readonly entityType?: string | null;
+  readonly ptpTasks?: (TaskDef | null)[] | null;
+  readonly crewMemberLogin?: (CrewLoginInfo | null)[] | null;
+  readonly createdBy?: string | null;
+  readonly modifiedBy?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type PTPTasksValue = LazyLoading extends LazyLoadingDisabled ? EagerPTPTasksValue : LazyPTPTasksValue
+
+export declare const PTPTasksValue: (new (init: ModelInit<PTPTasksValue>) => PTPTasksValue) & {
+  copyOf(source: PTPTasksValue, mutator: (draft: MutableModel<PTPTasksValue>) => MutableModel<PTPTasksValue> | void): PTPTasksValue;
+}
+
+type EagerProjectSiteHierarchy = {
+  readonly [__modelMeta__]: {
+    identifier: CompositeIdentifier<ProjectSiteHierarchy, ['userId', 'projectSortKey']>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly userId: string;
+  readonly projectSortKey: string;
+  readonly entityType?: string | null;
+  readonly region?: string | null;
+  readonly businessUnit?: string | null;
+  readonly projectSite?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyProjectSiteHierarchy = {
+  readonly [__modelMeta__]: {
+    identifier: CompositeIdentifier<ProjectSiteHierarchy, ['userId', 'projectSortKey']>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly userId: string;
+  readonly projectSortKey: string;
+  readonly entityType?: string | null;
+  readonly region?: string | null;
+  readonly businessUnit?: string | null;
+  readonly projectSite?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type ProjectSiteHierarchy = LazyLoading extends LazyLoadingDisabled ? EagerProjectSiteHierarchy : LazyProjectSiteHierarchy
+
+export declare const ProjectSiteHierarchy: (new (init: ModelInit<ProjectSiteHierarchy>) => ProjectSiteHierarchy) & {
+  copyOf(source: ProjectSiteHierarchy, mutator: (draft: MutableModel<ProjectSiteHierarchy>) => MutableModel<ProjectSiteHierarchy> | void): ProjectSiteHierarchy;
 }

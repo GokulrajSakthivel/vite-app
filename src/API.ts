@@ -169,6 +169,8 @@ export type CreateMasterInput = {
   masterDescription?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
@@ -179,6 +181,8 @@ export type ModelMasterConditionInput = {
   masterDescription?: ModelStringInput | null,
   displayOrder?: ModelIntInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   and?: Array< ModelMasterConditionInput | null > | null,
   or?: Array< ModelMasterConditionInput | null > | null,
   not?: ModelMasterConditionInput | null,
@@ -208,6 +212,8 @@ export type Master = {
   masterDescription?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   items?: ModelMasterItemConnection | null,
   createdAt: string,
   updatedAt: string,
@@ -233,6 +239,8 @@ export type MasterItem = {
   mastercode?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -248,6 +256,8 @@ export type UpdateMasterInput = {
   masterDescription?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
@@ -265,6 +275,8 @@ export type CreateMasterItemInput = {
   mastercode?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
@@ -275,6 +287,8 @@ export type ModelMasterItemConditionInput = {
   mastercode?: ModelStringInput | null,
   displayOrder?: ModelIntInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   and?: Array< ModelMasterItemConditionInput | null > | null,
   or?: Array< ModelMasterItemConditionInput | null > | null,
   not?: ModelMasterItemConditionInput | null,
@@ -292,6 +306,8 @@ export type UpdateMasterItemInput = {
   mastercode?: string | null,
   displayOrder?: number | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
@@ -304,9 +320,11 @@ export type DeleteMasterItemInput = {
 export type CreatePtpTemplateDefInput = {
   id?: string | null,
   templateName: string,
-  ptpoptions?: PtpOptionsInfoInput | null,
+  ptpOptions?: PtpOptionsInfoInput | null,
   isTemplateUsed?: string | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
@@ -325,6 +343,8 @@ export type HazardandMeasuresControlDefInput = {
 export type ModelPtpTemplateDefConditionInput = {
   isTemplateUsed?: ModelStringInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   and?: Array< ModelPtpTemplateDefConditionInput | null > | null,
   or?: Array< ModelPtpTemplateDefConditionInput | null > | null,
   not?: ModelPtpTemplateDefConditionInput | null,
@@ -337,9 +357,11 @@ export type PtpTemplateDef = {
   __typename: "PtpTemplateDef",
   id: string,
   templateName: string,
-  ptpoptions?: PtpOptionsInfo | null,
+  ptpOptions?: PtpOptionsInfo | null,
   isTemplateUsed?: string | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -364,15 +386,311 @@ export type HazardandMeasuresControlDef = {
 export type UpdatePtpTemplateDefInput = {
   id: string,
   templateName: string,
-  ptpoptions?: PtpOptionsInfoInput | null,
+  ptpOptions?: PtpOptionsInfoInput | null,
   isTemplateUsed?: string | null,
   isActive?: boolean | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
   _version?: number | null,
 };
 
 export type DeletePtpTemplateDefInput = {
   id: string,
   templateName: string,
+  _version?: number | null,
+};
+
+export type CreatePTPTemplateInput = {
+  templateDefId: string,
+  id?: string | null,
+  ptpOptonsSelection?: Array< PTPSelectionsInput | null > | null,
+  foremanSignInandOut?: Array< ForemanSignInfoInput | null > | null,
+  emergencyContacts?: Array< EmergencyContactInfoInput | null > | null,
+  shiftReviewes?: Array< ShiftReviewInfoInput | null > | null,
+  status?: string | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  _version?: number | null,
+};
+
+export type PTPSelectionsInput = {
+  requiredPermits?: Array< string | null > | null,
+  rquiredChecklist?: Array< string | null > | null,
+  requiredPPE?: Array< string | null > | null,
+  hazardAndHazardMeasure?: Array< HazardSelectionsInput | null > | null,
+};
+
+export type HazardSelectionsInput = {
+  hazard?: string | null,
+  hazardMeasure?: Array< string | null > | null,
+  rcd?: number | null,
+};
+
+export type ForemanSignInfoInput = {
+  foremanName?: string | null,
+  signIn?: string | null,
+  signInDateTime: string,
+  signOut?: string | null,
+  signOutDateTime: string,
+  companyName?: string | null,
+};
+
+export type EmergencyContactInfoInput = {
+  isEmergencyActionPlanDiscussed?: boolean | null,
+  safety?: string | null,
+  superintendent?: string | null,
+  emergencyMusterArea?: string | null,
+  other?: string | null,
+};
+
+export type ShiftReviewInfoInput = {
+  isAllToolsusedAndStroedProperly?: boolean | null,
+  haveAllPermitsClosed?: boolean | null,
+  didAnyIncidentesorInjuries?: boolean | null,
+  wasTheIncidentReported?: boolean | null,
+  descriptionOfIncident?: string | null,
+};
+
+export type ModelPTPTemplateConditionInput = {
+  status?: ModelStringInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
+  and?: Array< ModelPTPTemplateConditionInput | null > | null,
+  or?: Array< ModelPTPTemplateConditionInput | null > | null,
+  not?: ModelPTPTemplateConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type PTPTemplate = {
+  __typename: "PTPTemplate",
+  templateDefId: string,
+  id: string,
+  ptpOptonsSelection?:  Array<PTPSelections | null > | null,
+  foremanSignInandOut?:  Array<ForemanSignInfo | null > | null,
+  emergencyContacts?:  Array<EmergencyContactInfo | null > | null,
+  shiftReviewes?:  Array<ShiftReviewInfo | null > | null,
+  status?: string | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  tasks?: ModelPTPTasksValueConnection | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type PTPSelections = {
+  __typename: "PTPSelections",
+  requiredPermits?: Array< string | null > | null,
+  rquiredChecklist?: Array< string | null > | null,
+  requiredPPE?: Array< string | null > | null,
+  hazardAndHazardMeasure?:  Array<HazardSelections | null > | null,
+};
+
+export type HazardSelections = {
+  __typename: "HazardSelections",
+  hazard?: string | null,
+  hazardMeasure?: Array< string | null > | null,
+  rcd?: number | null,
+};
+
+export type ForemanSignInfo = {
+  __typename: "ForemanSignInfo",
+  foremanName?: string | null,
+  signIn?: string | null,
+  signInDateTime: string,
+  signOut?: string | null,
+  signOutDateTime: string,
+  companyName?: string | null,
+};
+
+export type EmergencyContactInfo = {
+  __typename: "EmergencyContactInfo",
+  isEmergencyActionPlanDiscussed?: boolean | null,
+  safety?: string | null,
+  superintendent?: string | null,
+  emergencyMusterArea?: string | null,
+  other?: string | null,
+};
+
+export type ShiftReviewInfo = {
+  __typename: "ShiftReviewInfo",
+  isAllToolsusedAndStroedProperly?: boolean | null,
+  haveAllPermitsClosed?: boolean | null,
+  didAnyIncidentesorInjuries?: boolean | null,
+  wasTheIncidentReported?: boolean | null,
+  descriptionOfIncident?: string | null,
+};
+
+export type ModelPTPTasksValueConnection = {
+  __typename: "ModelPTPTasksValueConnection",
+  items:  Array<PTPTasksValue | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type PTPTasksValue = {
+  __typename: "PTPTasksValue",
+  templateId: string,
+  entityType?: string | null,
+  ptpTasks?:  Array<TaskDef | null > | null,
+  crewMemberLogin?:  Array<CrewLoginInfo | null > | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type TaskDef = {
+  __typename: "TaskDef",
+  task?: string | null,
+  toolsAndEquipment?: string | null,
+  taskHazarad?: string | null,
+  hazardControl?: string | null,
+  competentPerson?: string | null,
+};
+
+export type CrewLoginInfo = {
+  __typename: "CrewLoginInfo",
+  crewName?: string | null,
+  signIn?: string | null,
+  signInDateTime: string,
+  signInComments?: string | null,
+  signOut?: string | null,
+  signOutDateTime: string,
+  signOutComments?: string | null,
+};
+
+export type UpdatePTPTemplateInput = {
+  templateDefId: string,
+  id?: string | null,
+  ptpOptonsSelection?: Array< PTPSelectionsInput | null > | null,
+  foremanSignInandOut?: Array< ForemanSignInfoInput | null > | null,
+  emergencyContacts?: Array< EmergencyContactInfoInput | null > | null,
+  shiftReviewes?: Array< ShiftReviewInfoInput | null > | null,
+  status?: string | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  _version?: number | null,
+};
+
+export type DeletePTPTemplateInput = {
+  templateDefId: string,
+  _version?: number | null,
+};
+
+export type CreatePTPTasksValueInput = {
+  templateId: string,
+  entityType?: string | null,
+  ptpTasks?: Array< TaskDefInput | null > | null,
+  crewMemberLogin?: Array< CrewLoginInfoInput | null > | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  _version?: number | null,
+};
+
+export type TaskDefInput = {
+  task?: string | null,
+  toolsAndEquipment?: string | null,
+  taskHazarad?: string | null,
+  hazardControl?: string | null,
+  competentPerson?: string | null,
+};
+
+export type CrewLoginInfoInput = {
+  crewName?: string | null,
+  signIn?: string | null,
+  signInDateTime: string,
+  signInComments?: string | null,
+  signOut?: string | null,
+  signOutDateTime: string,
+  signOutComments?: string | null,
+};
+
+export type ModelPTPTasksValueConditionInput = {
+  entityType?: ModelStringInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
+  and?: Array< ModelPTPTasksValueConditionInput | null > | null,
+  or?: Array< ModelPTPTasksValueConditionInput | null > | null,
+  not?: ModelPTPTasksValueConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type UpdatePTPTasksValueInput = {
+  templateId: string,
+  entityType?: string | null,
+  ptpTasks?: Array< TaskDefInput | null > | null,
+  crewMemberLogin?: Array< CrewLoginInfoInput | null > | null,
+  createdBy?: string | null,
+  modifiedBy?: string | null,
+  _version?: number | null,
+};
+
+export type DeletePTPTasksValueInput = {
+  templateId: string,
+  _version?: number | null,
+};
+
+export type CreateProjectSiteHierarchyInput = {
+  userId: string,
+  projectSortKey: string,
+  entityType?: string | null,
+  region?: string | null,
+  businessUnit?: string | null,
+  projectSite?: string | null,
+  _version?: number | null,
+};
+
+export type ModelProjectSiteHierarchyConditionInput = {
+  entityType?: ModelStringInput | null,
+  region?: ModelStringInput | null,
+  businessUnit?: ModelStringInput | null,
+  projectSite?: ModelStringInput | null,
+  and?: Array< ModelProjectSiteHierarchyConditionInput | null > | null,
+  or?: Array< ModelProjectSiteHierarchyConditionInput | null > | null,
+  not?: ModelProjectSiteHierarchyConditionInput | null,
+  _deleted?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+};
+
+export type ProjectSiteHierarchy = {
+  __typename: "ProjectSiteHierarchy",
+  userId: string,
+  projectSortKey: string,
+  entityType?: string | null,
+  region?: string | null,
+  businessUnit?: string | null,
+  projectSite?: string | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type UpdateProjectSiteHierarchyInput = {
+  userId: string,
+  projectSortKey: string,
+  entityType?: string | null,
+  region?: string | null,
+  businessUnit?: string | null,
+  projectSite?: string | null,
+  _version?: number | null,
+};
+
+export type DeleteProjectSiteHierarchyInput = {
+  userId: string,
+  projectSortKey: string,
   _version?: number | null,
 };
 
@@ -416,6 +734,8 @@ export type ModelMasterFilterInput = {
   masterDescription?: ModelStringInput | null,
   displayOrder?: ModelIntInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelMasterFilterInput | null > | null,
@@ -456,6 +776,8 @@ export type ModelMasterItemFilterInput = {
   mastercode?: ModelStringInput | null,
   displayOrder?: ModelIntInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelMasterItemFilterInput | null > | null,
@@ -479,6 +801,8 @@ export type ModelPtpTemplateDefFilterInput = {
   templateName?: ModelStringInput | null,
   isTemplateUsed?: ModelStringInput | null,
   isActive?: ModelBooleanInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelPtpTemplateDefFilterInput | null > | null,
@@ -490,6 +814,64 @@ export type ModelPtpTemplateDefFilterInput = {
 export type ModelPtpTemplateDefConnection = {
   __typename: "ModelPtpTemplateDefConnection",
   items:  Array<PtpTemplateDef | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type ModelPTPTemplateFilterInput = {
+  templateDefId?: ModelIDInput | null,
+  id?: ModelIDInput | null,
+  status?: ModelStringInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelPTPTemplateFilterInput | null > | null,
+  or?: Array< ModelPTPTemplateFilterInput | null > | null,
+  not?: ModelPTPTemplateFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelPTPTemplateConnection = {
+  __typename: "ModelPTPTemplateConnection",
+  items:  Array<PTPTemplate | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type ModelPTPTasksValueFilterInput = {
+  templateId?: ModelIDInput | null,
+  entityType?: ModelStringInput | null,
+  createdBy?: ModelStringInput | null,
+  modifiedBy?: ModelStringInput | null,
+  id?: ModelIDInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelPTPTasksValueFilterInput | null > | null,
+  or?: Array< ModelPTPTasksValueFilterInput | null > | null,
+  not?: ModelPTPTasksValueFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelProjectSiteHierarchyFilterInput = {
+  userId?: ModelIDInput | null,
+  projectSortKey?: ModelIDInput | null,
+  entityType?: ModelStringInput | null,
+  region?: ModelStringInput | null,
+  businessUnit?: ModelStringInput | null,
+  projectSite?: ModelStringInput | null,
+  id?: ModelIDInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  and?: Array< ModelProjectSiteHierarchyFilterInput | null > | null,
+  or?: Array< ModelProjectSiteHierarchyFilterInput | null > | null,
+  not?: ModelProjectSiteHierarchyFilterInput | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelProjectSiteHierarchyConnection = {
+  __typename: "ModelProjectSiteHierarchyConnection",
+  items:  Array<ProjectSiteHierarchy | null >,
   nextToken?: string | null,
   startedAt?: number | null,
 };
@@ -555,6 +937,8 @@ export type ModelSubscriptionMasterFilterInput = {
   masterDescription?: ModelSubscriptionStringInput | null,
   displayOrder?: ModelSubscriptionIntInput | null,
   isActive?: ModelSubscriptionBooleanInput | null,
+  createdBy?: ModelSubscriptionStringInput | null,
+  modifiedBy?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionMasterFilterInput | null > | null,
@@ -588,6 +972,8 @@ export type ModelSubscriptionMasterItemFilterInput = {
   mastercode?: ModelSubscriptionStringInput | null,
   displayOrder?: ModelSubscriptionIntInput | null,
   isActive?: ModelSubscriptionBooleanInput | null,
+  createdBy?: ModelSubscriptionStringInput | null,
+  modifiedBy?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionMasterItemFilterInput | null > | null,
@@ -600,10 +986,53 @@ export type ModelSubscriptionPtpTemplateDefFilterInput = {
   templateName?: ModelSubscriptionStringInput | null,
   isTemplateUsed?: ModelSubscriptionStringInput | null,
   isActive?: ModelSubscriptionBooleanInput | null,
+  createdBy?: ModelSubscriptionStringInput | null,
+  modifiedBy?: ModelSubscriptionStringInput | null,
   createdAt?: ModelSubscriptionStringInput | null,
   updatedAt?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionPtpTemplateDefFilterInput | null > | null,
   or?: Array< ModelSubscriptionPtpTemplateDefFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelSubscriptionPTPTemplateFilterInput = {
+  templateDefId?: ModelSubscriptionIDInput | null,
+  id?: ModelSubscriptionIDInput | null,
+  status?: ModelSubscriptionStringInput | null,
+  createdBy?: ModelSubscriptionStringInput | null,
+  modifiedBy?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPTPTemplateFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPTPTemplateFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelSubscriptionPTPTasksValueFilterInput = {
+  templateId?: ModelSubscriptionIDInput | null,
+  entityType?: ModelSubscriptionStringInput | null,
+  createdBy?: ModelSubscriptionStringInput | null,
+  modifiedBy?: ModelSubscriptionStringInput | null,
+  id?: ModelSubscriptionIDInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPTPTasksValueFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPTPTasksValueFilterInput | null > | null,
+  _deleted?: ModelBooleanInput | null,
+};
+
+export type ModelSubscriptionProjectSiteHierarchyFilterInput = {
+  userId?: ModelSubscriptionIDInput | null,
+  projectSortKey?: ModelSubscriptionIDInput | null,
+  entityType?: ModelSubscriptionStringInput | null,
+  region?: ModelSubscriptionStringInput | null,
+  businessUnit?: ModelSubscriptionStringInput | null,
+  projectSite?: ModelSubscriptionStringInput | null,
+  id?: ModelSubscriptionIDInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionProjectSiteHierarchyFilterInput | null > | null,
+  or?: Array< ModelSubscriptionProjectSiteHierarchyFilterInput | null > | null,
   _deleted?: ModelBooleanInput | null,
 };
 
@@ -754,6 +1183,8 @@ export type CreateMasterMutation = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -782,6 +1213,8 @@ export type UpdateMasterMutation = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -810,6 +1243,8 @@ export type DeleteMasterMutation = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -839,6 +1274,8 @@ export type CreateMasterItemMutation = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -863,6 +1300,8 @@ export type UpdateMasterItemMutation = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -887,6 +1326,8 @@ export type DeleteMasterItemMutation = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -905,7 +1346,7 @@ export type CreatePtpTemplateDefMutation = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -913,6 +1354,8 @@ export type CreatePtpTemplateDefMutation = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -931,7 +1374,7 @@ export type UpdatePtpTemplateDefMutation = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -939,6 +1382,8 @@ export type UpdatePtpTemplateDefMutation = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -957,7 +1402,7 @@ export type DeletePtpTemplateDefMutation = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -965,6 +1410,359 @@ export type DeletePtpTemplateDefMutation = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type CreatePTPTemplateMutationVariables = {
+  input: CreatePTPTemplateInput,
+  condition?: ModelPTPTemplateConditionInput | null,
+};
+
+export type CreatePTPTemplateMutation = {
+  createPTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdatePTPTemplateMutationVariables = {
+  input: UpdatePTPTemplateInput,
+  condition?: ModelPTPTemplateConditionInput | null,
+};
+
+export type UpdatePTPTemplateMutation = {
+  updatePTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeletePTPTemplateMutationVariables = {
+  input: DeletePTPTemplateInput,
+  condition?: ModelPTPTemplateConditionInput | null,
+};
+
+export type DeletePTPTemplateMutation = {
+  deletePTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type CreatePTPTasksValueMutationVariables = {
+  input: CreatePTPTasksValueInput,
+  condition?: ModelPTPTasksValueConditionInput | null,
+};
+
+export type CreatePTPTasksValueMutation = {
+  createPTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdatePTPTasksValueMutationVariables = {
+  input: UpdatePTPTasksValueInput,
+  condition?: ModelPTPTasksValueConditionInput | null,
+};
+
+export type UpdatePTPTasksValueMutation = {
+  updatePTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeletePTPTasksValueMutationVariables = {
+  input: DeletePTPTasksValueInput,
+  condition?: ModelPTPTasksValueConditionInput | null,
+};
+
+export type DeletePTPTasksValueMutation = {
+  deletePTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type CreateProjectSiteHierarchyMutationVariables = {
+  input: CreateProjectSiteHierarchyInput,
+  condition?: ModelProjectSiteHierarchyConditionInput | null,
+};
+
+export type CreateProjectSiteHierarchyMutation = {
+  createProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type UpdateProjectSiteHierarchyMutationVariables = {
+  input: UpdateProjectSiteHierarchyInput,
+  condition?: ModelProjectSiteHierarchyConditionInput | null,
+};
+
+export type UpdateProjectSiteHierarchyMutation = {
+  updateProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type DeleteProjectSiteHierarchyMutationVariables = {
+  input: DeleteProjectSiteHierarchyInput,
+  condition?: ModelProjectSiteHierarchyConditionInput | null,
+};
+
+export type DeleteProjectSiteHierarchyMutation = {
+  deleteProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1133,6 +1931,8 @@ export type GetMasterQuery = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -1166,6 +1966,8 @@ export type ListMastersQuery = {
       masterDescription?: string | null,
       displayOrder?: number | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1196,6 +1998,8 @@ export type SyncMastersQuery = {
       masterDescription?: string | null,
       displayOrder?: number | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1223,6 +2027,8 @@ export type GetMasterItemQuery = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1253,6 +2059,8 @@ export type ListMasterItemsQuery = {
       mastercode?: string | null,
       displayOrder?: number | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1284,6 +2092,8 @@ export type SyncMasterItemsQuery = {
       mastercode?: string | null,
       displayOrder?: number | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1305,7 +2115,7 @@ export type GetPtpTemplateDefQuery = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -1313,6 +2123,8 @@ export type GetPtpTemplateDefQuery = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1339,6 +2151,8 @@ export type ListPtpTemplateDefsQuery = {
       templateName: string,
       isTemplateUsed?: string | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1366,6 +2180,295 @@ export type SyncPtpTemplateDefsQuery = {
       templateName: string,
       isTemplateUsed?: string | null,
       isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type GetPTPTemplateQueryVariables = {
+  templateDefId: string,
+};
+
+export type GetPTPTemplateQuery = {
+  getPTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListPTPTemplatesQueryVariables = {
+  templateDefId?: string | null,
+  filter?: ModelPTPTemplateFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListPTPTemplatesQuery = {
+  listPTPTemplates?:  {
+    __typename: "ModelPTPTemplateConnection",
+    items:  Array< {
+      __typename: "PTPTemplate",
+      templateDefId: string,
+      id: string,
+      status?: string | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncPTPTemplatesQueryVariables = {
+  filter?: ModelPTPTemplateFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncPTPTemplatesQuery = {
+  syncPTPTemplates?:  {
+    __typename: "ModelPTPTemplateConnection",
+    items:  Array< {
+      __typename: "PTPTemplate",
+      templateDefId: string,
+      id: string,
+      status?: string | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type GetPTPTasksValueQueryVariables = {
+  templateId: string,
+};
+
+export type GetPTPTasksValueQuery = {
+  getPTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListPTPTasksValuesQueryVariables = {
+  templateId?: string | null,
+  filter?: ModelPTPTasksValueFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListPTPTasksValuesQuery = {
+  listPTPTasksValues?:  {
+    __typename: "ModelPTPTasksValueConnection",
+    items:  Array< {
+      __typename: "PTPTasksValue",
+      templateId: string,
+      entityType?: string | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncPTPTasksValuesQueryVariables = {
+  filter?: ModelPTPTasksValueFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncPTPTasksValuesQuery = {
+  syncPTPTasksValues?:  {
+    __typename: "ModelPTPTasksValueConnection",
+    items:  Array< {
+      __typename: "PTPTasksValue",
+      templateId: string,
+      entityType?: string | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type GetProjectSiteHierarchyQueryVariables = {
+  userId: string,
+  projectSortKey: string,
+};
+
+export type GetProjectSiteHierarchyQuery = {
+  getProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type ListProjectSiteHierarchiesQueryVariables = {
+  userId?: string | null,
+  projectSortKey?: ModelIDKeyConditionInput | null,
+  filter?: ModelProjectSiteHierarchyFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
+};
+
+export type ListProjectSiteHierarchiesQuery = {
+  listProjectSiteHierarchies?:  {
+    __typename: "ModelProjectSiteHierarchyConnection",
+    items:  Array< {
+      __typename: "ProjectSiteHierarchy",
+      userId: string,
+      projectSortKey: string,
+      entityType?: string | null,
+      region?: string | null,
+      businessUnit?: string | null,
+      projectSite?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncProjectSiteHierarchiesQueryVariables = {
+  filter?: ModelProjectSiteHierarchyFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncProjectSiteHierarchiesQuery = {
+  syncProjectSiteHierarchies?:  {
+    __typename: "ModelProjectSiteHierarchyConnection",
+    items:  Array< {
+      __typename: "ProjectSiteHierarchy",
+      userId: string,
+      projectSortKey: string,
+      entityType?: string | null,
+      region?: string | null,
+      businessUnit?: string | null,
+      projectSite?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1394,6 +2497,72 @@ export type AddressesByUserIDQuery = {
       userID: string,
       country: string,
       phone: string,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type MastersByCategoryNameQueryVariables = {
+  categoryName: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelMasterFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type MastersByCategoryNameQuery = {
+  mastersByCategoryName?:  {
+    __typename: "ModelMasterConnection",
+    items:  Array< {
+      __typename: "Master",
+      id: string,
+      masterTitle?: string | null,
+      categoryName?: string | null,
+      masterName?: string | null,
+      masterDescription?: string | null,
+      displayOrder?: number | null,
+      isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type MastersByMasterNameQueryVariables = {
+  masterName: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelMasterFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type MastersByMasterNameQuery = {
+  mastersByMasterName?:  {
+    __typename: "ModelMasterConnection",
+    items:  Array< {
+      __typename: "Master",
+      id: string,
+      masterTitle?: string | null,
+      categoryName?: string | null,
+      masterName?: string | null,
+      masterDescription?: string | null,
+      displayOrder?: number | null,
+      isActive?: boolean | null,
+      createdBy?: string | null,
+      modifiedBy?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -1545,6 +2714,8 @@ export type OnCreateMasterSubscription = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -1572,6 +2743,8 @@ export type OnUpdateMasterSubscription = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -1599,6 +2772,8 @@ export type OnDeleteMasterSubscription = {
     masterDescription?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     items?:  {
       __typename: "ModelMasterItemConnection",
       nextToken?: string | null,
@@ -1627,6 +2802,8 @@ export type OnCreateMasterItemSubscription = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1650,6 +2827,8 @@ export type OnUpdateMasterItemSubscription = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1673,6 +2852,8 @@ export type OnDeleteMasterItemSubscription = {
     mastercode?: string | null,
     displayOrder?: number | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1690,7 +2871,7 @@ export type OnCreatePtpTemplateDefSubscription = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -1698,6 +2879,8 @@ export type OnCreatePtpTemplateDefSubscription = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1715,7 +2898,7 @@ export type OnUpdatePtpTemplateDefSubscription = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -1723,6 +2906,8 @@ export type OnUpdatePtpTemplateDefSubscription = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -1740,7 +2925,7 @@ export type OnDeletePtpTemplateDefSubscription = {
     __typename: "PtpTemplateDef",
     id: string,
     templateName: string,
-    ptpoptions?:  {
+    ptpOptions?:  {
       __typename: "PtpOptionsInfo",
       requiredPermits?: Array< string | null > | null,
       requiredChecklist?: Array< string | null > | null,
@@ -1748,6 +2933,350 @@ export type OnDeletePtpTemplateDefSubscription = {
     } | null,
     isTemplateUsed?: string | null,
     isActive?: boolean | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreatePTPTemplateSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTemplateFilterInput | null,
+};
+
+export type OnCreatePTPTemplateSubscription = {
+  onCreatePTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdatePTPTemplateSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTemplateFilterInput | null,
+};
+
+export type OnUpdatePTPTemplateSubscription = {
+  onUpdatePTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeletePTPTemplateSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTemplateFilterInput | null,
+};
+
+export type OnDeletePTPTemplateSubscription = {
+  onDeletePTPTemplate?:  {
+    __typename: "PTPTemplate",
+    templateDefId: string,
+    id: string,
+    ptpOptonsSelection?:  Array< {
+      __typename: "PTPSelections",
+      requiredPermits?: Array< string | null > | null,
+      rquiredChecklist?: Array< string | null > | null,
+      requiredPPE?: Array< string | null > | null,
+    } | null > | null,
+    foremanSignInandOut?:  Array< {
+      __typename: "ForemanSignInfo",
+      foremanName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signOut?: string | null,
+      signOutDateTime: string,
+      companyName?: string | null,
+    } | null > | null,
+    emergencyContacts?:  Array< {
+      __typename: "EmergencyContactInfo",
+      isEmergencyActionPlanDiscussed?: boolean | null,
+      safety?: string | null,
+      superintendent?: string | null,
+      emergencyMusterArea?: string | null,
+      other?: string | null,
+    } | null > | null,
+    shiftReviewes?:  Array< {
+      __typename: "ShiftReviewInfo",
+      isAllToolsusedAndStroedProperly?: boolean | null,
+      haveAllPermitsClosed?: boolean | null,
+      didAnyIncidentesorInjuries?: boolean | null,
+      wasTheIncidentReported?: boolean | null,
+      descriptionOfIncident?: string | null,
+    } | null > | null,
+    status?: string | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    tasks?:  {
+      __typename: "ModelPTPTasksValueConnection",
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreatePTPTasksValueSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTasksValueFilterInput | null,
+};
+
+export type OnCreatePTPTasksValueSubscription = {
+  onCreatePTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdatePTPTasksValueSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTasksValueFilterInput | null,
+};
+
+export type OnUpdatePTPTasksValueSubscription = {
+  onUpdatePTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeletePTPTasksValueSubscriptionVariables = {
+  filter?: ModelSubscriptionPTPTasksValueFilterInput | null,
+};
+
+export type OnDeletePTPTasksValueSubscription = {
+  onDeletePTPTasksValue?:  {
+    __typename: "PTPTasksValue",
+    templateId: string,
+    entityType?: string | null,
+    ptpTasks?:  Array< {
+      __typename: "TaskDef",
+      task?: string | null,
+      toolsAndEquipment?: string | null,
+      taskHazarad?: string | null,
+      hazardControl?: string | null,
+      competentPerson?: string | null,
+    } | null > | null,
+    crewMemberLogin?:  Array< {
+      __typename: "CrewLoginInfo",
+      crewName?: string | null,
+      signIn?: string | null,
+      signInDateTime: string,
+      signInComments?: string | null,
+      signOut?: string | null,
+      signOutDateTime: string,
+      signOutComments?: string | null,
+    } | null > | null,
+    createdBy?: string | null,
+    modifiedBy?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnCreateProjectSiteHierarchySubscriptionVariables = {
+  filter?: ModelSubscriptionProjectSiteHierarchyFilterInput | null,
+};
+
+export type OnCreateProjectSiteHierarchySubscription = {
+  onCreateProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnUpdateProjectSiteHierarchySubscriptionVariables = {
+  filter?: ModelSubscriptionProjectSiteHierarchyFilterInput | null,
+};
+
+export type OnUpdateProjectSiteHierarchySubscription = {
+  onUpdateProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+  } | null,
+};
+
+export type OnDeleteProjectSiteHierarchySubscriptionVariables = {
+  filter?: ModelSubscriptionProjectSiteHierarchyFilterInput | null,
+};
+
+export type OnDeleteProjectSiteHierarchySubscription = {
+  onDeleteProjectSiteHierarchy?:  {
+    __typename: "ProjectSiteHierarchy",
+    userId: string,
+    projectSortKey: string,
+    entityType?: string | null,
+    region?: string | null,
+    businessUnit?: string | null,
+    projectSite?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
